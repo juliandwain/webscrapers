@@ -72,3 +72,136 @@ Can't find symbol 'eglSetDamageRegionKHR'.
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 1611346907426	Marionette	INFO	Listening on port 51673
 1611346907706	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611386053564	geckodriver	INFO	Listening on 127.0.0.1:50103
+1611386056603	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofilerl8lRz"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611386059036	Marionette	INFO	Listening on port 50113
+1611386059285	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611386060054	Marionette	INFO	Stopped listening on port 50113
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1611387417605	geckodriver	INFO	Listening on 127.0.0.1:58090
+1611387420685	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofileuJI30H"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611387422445	Marionette	INFO	Listening on port 58098
+1611387422741	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611387423500	Marionette	INFO	Stopped listening on port 58098
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1611387471683	geckodriver	INFO	Listening on 127.0.0.1:58180
+1611387474765	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofile3MiUpj"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611387476361	Marionette	INFO	Listening on port 58188
+1611387476840	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611387477615	Marionette	INFO	Stopped listening on port 58188
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1611388041729	geckodriver	INFO	Listening on 127.0.0.1:58447
+1611388044822	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofileW7Id09"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611388046628	Marionette	INFO	Listening on port 58455
+1611388046866	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611388047892	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+1611388049066	Marionette	INFO	Stopped listening on port 58455
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1611388512793	geckodriver	INFO	Listening on 127.0.0.1:58954
+1611388515873	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofilerRsVvc"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611388517676	Marionette	INFO	Listening on port 58967
+1611388517937	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611388518871	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+[Child 3496, MediaDecoderStateMachine #1] WARNING: Decoder=25100093800 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+[Child 3496, MediaDecoderStateMachine #1] WARNING: Decoder=25100093800 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+[Child 3496, MediaDecoderStateMachine #1] WARNING: Decoder=2510008f400 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+[Child 3496, MediaDecoderStateMachine #1] WARNING: Decoder=2510008f400 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+[Child 3496, MediaDecoderStateMachine #1] WARNING: Decoder=2510008f000 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+[Child 3496, MediaDecoderStateMachine #1] WARNING: Decoder=2510008cc00 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+1611388955602	geckodriver	INFO	Listening on 127.0.0.1:59597
+1611388958677	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofilecjhjEv"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611388960463	Marionette	INFO	Listening on port 59606
+1611388960714	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611388961867	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+1611388973854	geckodriver	INFO	Listening on 127.0.0.1:59715
+1611388976921	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofilefZ3Ca2"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611388978671	Marionette	INFO	Listening on port 59724
+1611388978980	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611388979891	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+[Child 9100, MediaDecoderStateMachine #1] WARNING: Decoder=1e0004f3800 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+[Child 9100, MediaDecoderStateMachine #1] WARNING: Decoder=1e0004f2000 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+[Child 9100, MediaDecoderStateMachine #1] WARNING: Decoder=1e0004f2000 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:3471
+1611389130465	geckodriver	INFO	Listening on 127.0.0.1:59984
+1611389133563	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofilej2OpQ1"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611389135225	Marionette	INFO	Listening on port 59995
+1611389135626	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611389136637	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+1611389338753	geckodriver	INFO	Listening on 127.0.0.1:60210
+1611389341844	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofileaIo5xF"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611389343491	Marionette	INFO	Listening on port 60220
+1611389343925	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611389344852	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+1611389411163	geckodriver	INFO	Listening on 127.0.0.1:60355
+1611389414266	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofilegrJ5qE"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611389415975	Marionette	INFO	Listening on port 60366
+1611389416343	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611389417263	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+1611389418680	Marionette	INFO	Stopped listening on port 60366
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1611389454376	geckodriver	INFO	Listening on 127.0.0.1:60552
+1611389457484	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofileN38mF9"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611389459335	Marionette	INFO	Listening on port 60562
+1611389459529	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611389460560	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.GmQXYX2grLI.O/m=auth2/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCMtu8dqzlwPg3dD9vohSr0qM2FQug/cb=gapi.loaded_0, line 223: uncaught exception: [object Object]
+JavaScript error: https://cookie-cdn.cookiepro.com/scripttemplates/6.7.0/otBannerSdk.js, line 7: TypeError: je.preferenceCenterGroup is undefined
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+1611389473708	Marionette	INFO	Stopped listening on port 60562
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
