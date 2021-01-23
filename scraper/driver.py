@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
-__doc__ = """
-
+__doc__ = """This module implements the webdriver.
 """
 
 import pathlib
-from typing import Optional, Tuple, Union
+from typing import Optional
 
 from selenium import webdriver
+from selenium.common.exceptions import (ElementClickInterceptedException,
+                                        ElementNotInteractableException)
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
@@ -102,17 +103,43 @@ class Webdriver:
         """
         self._url = val
 
+    def click_hyperlink(self, hyperlink) -> None:
+        """Click a hyperlink object.
+
+        Parameters
+        ----------
+        hyperlink : selenium.webdriver.Webelement
+            A selenium webelement representing a hyperlink.
+
+        References
+        ----------
+        [1] https://sqa.stackexchange.com/questions/13792/how-to-proceed-after-clicking-a-link-to-new-page-in-selenium-in-python
+
+        """
+        try:
+            hyperlink.click()
+        except ElementClickInterceptedException:
+            self._engine.execute_script("arguments[0].click();", hyperlink)
+        except ElementNotInteractableException:
+            self._engine.execute_script(
+                "return arguments[0].scrollIntoView(true);", hyperlink)
+            self._engine.execute_script("arguments[0].click();", hyperlink)
+        finally:
+            window_after = next(
+                iter(self._engine.window_handles), self._engine.window_handles[0])
+            self._engine.switch_to.window(window_after)
+
     def find_object(
             self,
             by_strat: Optional[str],
-            idx: Union[list, int, None],
             **kwargs: dict):
-        """Find all <object></object> html elements in the given html page or in the given webelement.
+        """Find all <object></object> html elements in the given
+        html page or in the given webelement.
 
         Parameters
         ----------
         by_strat : str or None
-            Determine a by strategy by which the given element
+            Determine a by-strategy by which the given element
             should be searched for value.
             Can be one of the following:
             * "id"
@@ -124,29 +151,27 @@ class Webdriver:
             * "class_name"
             * "css_selector"
 
-        idx : list or int or None
-            The index/number of the html element which you want to access.
-            If set to None, all elements are examined.
-
         Other Parameters
         ----------------
         element : selenium.webdriver.webelement
             The webelement which should be searched.
-        val : str
+        val : str or None
             The value of the table element corresponding to the type
-            of strategy chosen, see [1].
+            of strategy chosen, see [1]. If `val` is None, then the html
+            is returned.
         condition_type : str
-            See the docs for element_wait().
+            See the docs for `element_wait()`.
 
         Returns
         -------
         list or selenium.webdriver.webelement
-            A list containing the selenium.webdriver.webelement s. If the index, i.e. `idx` is set to a single value,
+            A list containing the selenium.webdriver.webelements.
+            If the index, i.e. `idx` is set to a single value,
             i.e. an integer, then the webdriver element is directly returned.
 
         Notes
         -----
-        This function extracts all content in the table:
+        - This function extracts all content in the table:
 
         .. highlight:: html
         .. code-block:: html
@@ -155,43 +180,33 @@ class Webdriver:
                 content
             </object>
 
-        If no by strategy is given, the default is set to CSS_SELECTOR.
-        If a specific element is chosen, the val parameter has to be adapted to the by strategy, which is set to
-        CSS_SELECTOR if set to None, thus the val parameter has to be as CSS_SELECTOR.
-        If no kwargs are given, the whole html element is searched for <object></object>.
+        - If no by strategy is given, the default is set to CSS_SELECTOR.
+        - If a specific element is chosen, the val parameter has to be adapted
+          to the by strategy, which is set to CSS_SELECTOR if set to None,
+          thus the val parameter has to be as CSS_SELECTOR.
+        - If no kwargs are given, the whole html element is searched for <object></object>.
 
         References
         ----------
         .. [1] https://selenium-python.readthedocs.io/locating-elements.html
 
         """
-        by = self._strategy_dic.get(by_strat, By.CSS_SELECTOR)
+        by_strat = self._strategy_dic.get(by_strat, By.CSS_SELECTOR)
         element = kwargs.get("element", self._engine)
-        val = kwargs.get("val", None)
+        val = kwargs.get("val", "html")
         condition_type = kwargs.get("condition_type", "presence_all")
-
-        if val is None:
-            # wrong input combinations are prevented by calling self._browser if the value is set to None
-            html = element_wait(element=self._engine, time=self._timeout, by=By.CSS_SELECTOR, val="html",
-                                condition_type="presence")
-            # search the element for the self._get_html_name()
-            obj = html.find_elements(by)
-        else:
-            obj = element_wait(element=element, time=self.timeout,
-                               by=by, val=val, condition_type=condition_type)
-
-        helper = np.atleast_1d(obj)
-        if idx is not None:
-            arr = np.atleast_1d(idx)  # transform to numpy array
-        else:
-            arr = np.arange(0, len(helper))
-
-        arrays = helper[arr]
-
-        if arrays.shape[0] == 1:
-            return arrays[0]
-        else:
-            return arrays.tolist()
+        # get the object
+        obj = element_wait(
+            element=element,
+            time=self._timeout,
+            by_strat=by_strat,
+            val=val,
+            condition_type=condition_type
+        )
+        # if only 1 element is found
+        if len(obj) == 1:
+            obj = obj[0]
+        return obj
 
     def load_url(self) -> None:
         """Load to given url.
