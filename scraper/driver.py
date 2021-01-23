@@ -132,7 +132,8 @@ class Webdriver:
     def find_object(
             self,
             by_strat: Optional[str],
-            **kwargs: dict):
+            **kwargs: dict
+    ) -> list:
         """Find all <object></object> html elements in the given
         html page or in the given webelement.
 
@@ -164,7 +165,7 @@ class Webdriver:
 
         Returns
         -------
-        list or selenium.webdriver.webelement
+        list
             A list containing the selenium.webdriver.webelements.
             If the index, i.e. `idx` is set to a single value,
             i.e. an integer, then the webdriver element is directly returned.
@@ -203,9 +204,6 @@ class Webdriver:
             val=val,
             condition_type=condition_type
         )
-        # if only 1 element is found
-        if len(obj) == 1:
-            obj = obj[0]
         return obj
 
     def load_url(self) -> None:

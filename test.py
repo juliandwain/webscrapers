@@ -14,13 +14,13 @@ driver = Webdriver(URL, headless=False)
 
 with driver:
     # get the full html
-    html = driver.find_object(BY)
+    html = driver.find_object(BY)[0]
     # get the hyperlink to the markets
     markets_link = driver.find_object(
         BY,
         element=html,
         val="#navMenu > ul > li:nth-child(1) > a"
-    )
+    )[0]
     # click the hyperlink
     driver.click_hyperlink(markets_link)
     print(driver.engine.title)

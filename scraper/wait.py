@@ -29,13 +29,16 @@ def element_wait(
         time: int,
         by_strat: str,
         val: str,
-        condition_type: str) -> webdriver.firefox.webelement.FirefoxWebElement:
-    """Tell a selenium webelement to wait for `time` seconds until the val in element is located.
+        condition_type: str
+) -> webdriver.firefox.webelement.FirefoxWebElement:
+    """Tell a selenium webelement to wait for `time` seconds
+    until the val in element is located.
 
     Parameters
     ----------
     element : selenium.webdriver.webelement
-        The element which is searched for val given the condition type and the by strategy.
+        The element which is searched for val given the
+        condition type and the by strategy.
     time : int
         The amount of time in seconds which should be waited.
     by_strat : str
