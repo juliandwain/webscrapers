@@ -6,20 +6,23 @@ __doc__ = """This module implements the webscraper.
 import http.client
 import json
 import logging
+import os
 import pathlib
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
+from typing import Union
 
 import requests
+from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
+from tqdm import tqdm
 
 __all__ = [
     "Webscraper",
 ]
 
 # set up the logging configuration
-http.client.HTTPConnection.debuglevel = 1
+http.client.HTTPConnection.debuglevel = 0
 LOG_FILE = pathlib.Path(f"./scraper/{__name__.split('.')[-1]}.log")
-print(__name__)
 
 REQUESTS_LOG = logging.getLogger("requests.packages.urllib3")
 REQUESTS_LOG.setLevel(logging.DEBUG)
@@ -57,87 +60,18 @@ def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
         res.data = res.json()
     except json.decoder.JSONDecodeError:
         res.data = None
-    # get some reponse parameters
-    url = res.url
-    elapsed = res.elapsed.total_seconds()
-    encoding = res.encoding
-    reason = res.reason
-    status_code = res.status_code
-    # get some GET request parameters
-    cert = kwargs.get("cert", None)
-    timeout = kwargs.get("timeout", None)
     if args:
         raise AssertionError(f"Have a look at what is in {args}")
     msg = f"----- REPORT START -----\n" \
-          f"URL: {url}\n" \
-          f"Time: {elapsed:.3f}s\n" \
-          f"Encoding: {encoding}\n" \
-          f"Reason: {reason}\n" \
-          f"Status Code: {status_code}\n" \
-          f"Certificate: {cert}\n" \
-          f"Timeout After: {timeout}s\n" \
+          f"URL: {res.url}\n" \
+          f"Time: {res.elapsed.total_seconds():.3f}s\n" \
+          f"Encoding: {res.encoding}\n" \
+          f"Reason: {res.reason}\n" \
+          f"Status Code: {res.status_code}\n" \
+          f"Certificate: {kwargs.get('cert', None)}\n" \
           f"----- REPORT END -----\n"
     print(msg)
     return res
-
-
-def _load_url(url: str) -> requests.Response:
-    """Load a single url and return the corresponding response.
-
-    Parameters
-    ----------
-    url : str
-        The url to be loaded.
-
-    Returns
-    -------
-    res : requests.Response
-        The response from the webbrowser with the current url.
-
-    Notes
-    -----
-    This function is used for parallelly loading url responses.
-
-    """
-
-    user_agent = UserAgent()
-    headers = {"User-Agent": user_agent.random}
-    sess = requests.Session()
-    sess.hooks["response"].append(callback)
-    timeout = 15
-    with sess:
-        res = sess.get(url, headers=headers, timeout=timeout)
-    return res
-
-
-def _load_urls(urls: list, max_threads: int) -> list:
-    """Load a list of urls to response objects.
-
-    Parameters
-    ----------
-    urls : list
-        A list of urls to be loaded with the session objects.
-    max_threads : int
-        Maximum number of threads to use.
-
-    Returns
-    -------
-    list
-        A list of requests.Response objects corresponding to the urls given.
-
-    Notes
-    -----
-    This function uses multithreading since loading multiple URLs is an I/O
-    bound task. For this, a computer and system dependent maximum number
-    of threats have to be given.
-
-    """
-
-    with ThreadPoolExecutor(max_workers=max_threads) as executor:
-        responses = list(executor.map(_load_url, urls))
-        # wait until all threats are finished
-        executor.shutdown(wait=True)
-    return responses
 
 
 class Webscraper:
@@ -145,9 +79,21 @@ class Webscraper:
     """
 
     def __init__(self, parser: str) -> None:
+        """Init the class.
+
+        Parameters
+        ----------
+        parser : str
+            The parser to be used. Can either be:
+
+            * "html.parser"
+            * "lxml"
+
+        """
         self._parser = parser
 
         self._max_threads = 8
+        self._max_processes = os.cpu_count() - 2
 
         self._user_agent = UserAgent()
         self._headers = {"User-Agent": self._user_agent.random}
@@ -175,23 +121,56 @@ class Webscraper:
         return res
 
     def load_urls(self, urls: list) -> list:
-        """Load a list of urls.
+        """Load a list of urls to response objects.
 
         Parameters
         ----------
         urls : list
-            A list of string urls to be loaded.
+            A list of urls to be loaded with the session objects.
 
         Returns
         -------
         list
-            A list of response objects corresponding to the urls.
+            A list of requests.Response objects corresponding to the urls given.
 
         Notes
         -----
-        This function is based on the _load_urls function
-        provided within this module.
+        This function uses multithreading since loading multiple URLs is an I/O
+        bound task. For this, a computer and system dependent maximum number
+        of threads have to be given.
 
         """
-        responses = _load_urls(urls, self._max_threads)
+        with ThreadPoolExecutor(max_workers=self._max_threads) as executor:
+            responses = list(executor.map(self.load_url, urls))
+            # wait until all threats are finished
+            executor.shutdown(wait=True)
         return responses
+
+    def parse(
+        self,
+        res: Union[list, requests.Response]
+    ) -> Union[list, requests.Response]:
+        """Parse a single or a list of response objects.
+
+        Parameters
+        ----------
+        res : Union[list, requests.Response]
+            The response object(s).
+
+        Returns
+        -------
+        Union[list, requests.Response]
+            Depending on the input the same output is returned with parsed
+            htmls.
+
+        """
+        if isinstance(res, list):
+            obj = []
+            for response in tqdm(res):
+                obj.append(BeautifulSoup(response.content, self._parser))
+            # with ProcessPoolExecutor(max_workers=self._max_processes) as executor:
+            #     obj = list(executor.map(BeautifulSoup.__init__, [
+            #                re.content for re in res], len(res)*[self._parser]))
+        else:
+            obj = BeautifulSoup(res.content, self._parser)
+        return obj

@@ -36,26 +36,32 @@ LIST_OF_URLS = [
     "http://www.google.co.uk",
     "http://www.reddit.com",
 ]
-PARSER = "HTML.PARSER"
+PARSER = "html.parser"
 
-webscraper = ws.Webscraper(PARSER)
+if __name__ == "__main__":
 
-# start = time.time()
-# response = webscraper.load_url(URL)
-# end = time.time()
-# dur = end - start
-# print(f"Response of 1 object took {dur:.2f}s.")
+    webscraper = ws.Webscraper(PARSER)
 
-# start = time.time()
-# reponses = []
-# for url in tqdm(LIST_OF_URLS):
-#     reponses.append(webscraper.load_url(url))
-# end = time.time()
-# dur = end - start
-# print(f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in serial.")
-#
-start = time.time()
-responses_ = webscraper.load_urls(LIST_OF_URLS)
-end = time.time()
-dur = end - start
-print(f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in parallel.")
+    # start = time.time()
+    # response = webscraper.load_url(URL)
+    # obj = webscraper.parse(response)
+    # end = time.time()
+    # dur = end - start
+    # print(f"Response of 1 object took {dur:.2f}s.")
+    # print(obj.prettify())
+
+    # start = time.time()
+    # reponses = []
+    # for url in tqdm(LIST_OF_URLS):
+    #     reponses.append(webscraper.load_url(url))
+    # end = time.time()
+    # dur = end - start
+    # print(f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in serial.")
+    #
+    start = time.time()
+    responses_ = webscraper.load_urls(LIST_OF_URLS)
+    obj_ = webscraper.parse(responses_)
+    end = time.time()
+    dur = end - start
+    print(
+        f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in parallel.")
