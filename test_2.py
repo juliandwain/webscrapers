@@ -45,7 +45,7 @@ webscraper = ws.Webscraper(PARSER)
 # end = time.time()
 # dur = end - start
 # print(f"Response of 1 object took {dur:.2f}s.")
-#
+
 # start = time.time()
 # reponses = []
 # for url in tqdm(LIST_OF_URLS):
@@ -53,7 +53,7 @@ webscraper = ws.Webscraper(PARSER)
 # end = time.time()
 # dur = end - start
 # print(f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in serial.")
-
+#
 start = time.time()
 responses_ = webscraper.load_urls(LIST_OF_URLS)
 end = time.time()
