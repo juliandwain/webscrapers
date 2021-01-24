@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
-__doc__ = """This file servers as a test file.
+__doc__ = """This module servers as a test file.
 """
 
-from scraper import Webdriver
+import scraper.webdriver as wd
 
 URL = "https://www.investing.com/"
 
 BY = "css_selector"
 IDX = None
 
-driver = Webdriver(URL, headless=False)
+driver = wd.Webdriver(URL, headless=False)
 
 with driver:
     # get the full html
