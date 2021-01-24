@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 __doc__ = """This module implements the webdriver.
+
+The selenium based websdriver is useful for navigating through
+webpages.
 """
 
 import pathlib
