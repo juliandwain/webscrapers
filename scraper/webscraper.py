@@ -4,8 +4,9 @@ __doc__ = """This module implements the webscraper.
 """
 
 import http.client
-import pathlib
+import json
 import logging
+import pathlib
 from concurrent.futures import ThreadPoolExecutor
 
 import requests
@@ -15,21 +16,69 @@ __all__ = [
     "Webscraper",
 ]
 
-# set the debug level
+# set up the logging configuration
 http.client.HTTPConnection.debuglevel = 1
-LOG_FILE = pathlib.Path(f"./scraper/{__name__}.log")
+LOG_FILE = pathlib.Path(f"./scraper/{__name__.split('.')[-1]}.log")
+print(__name__)
 
-logging.basicConfig()
-logging.getLogger().setLevel(logging.DEBUG)
 REQUESTS_LOG = logging.getLogger("requests.packages.urllib3")
 REQUESTS_LOG.setLevel(logging.DEBUG)
 REQUESTS_LOG.propagate = True
 
 FILE_HANDLER = logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8")
-FORMATTER = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s",
-                              datefmt="%Y-%m-%d %H:%M:%S")
+FORMATTER = logging.Formatter(
+    "%(asctime)s:[%(threadName)-12.12s]:%(levelname)s:%(name)s:%(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
 FILE_HANDLER.setFormatter(FORMATTER)
 REQUESTS_LOG.addHandler(FILE_HANDLER)
+logging.basicConfig(handlers=[FILE_HANDLER])
+logging.getLogger().setLevel(logging.DEBUG)
+
+
+def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
+    """Callback function.
+
+    Parameters
+    ----------
+    res : requests.Response
+        A response object.
+
+    Returns
+    -------
+    requests.Response
+        A request.Response object.
+
+    """
+    # indicate that the callback funtion was called
+    res.hook_called = True
+    # save json data if available
+    try:
+        res.data = res.json()
+    except json.decoder.JSONDecodeError:
+        res.data = None
+    # get some reponse parameters
+    url = res.url
+    elapsed = res.elapsed.total_seconds()
+    encoding = res.encoding
+    reason = res.reason
+    status_code = res.status_code
+    # get some GET request parameters
+    cert = kwargs.get("cert", None)
+    timeout = kwargs.get("timeout", None)
+    if args:
+        raise AssertionError(f"Have a look at what is in {args}")
+    msg = f"----- REPORT START -----\n" \
+          f"URL: {url}\n" \
+          f"Time: {elapsed:.3f}s\n" \
+          f"Encoding: {encoding}\n" \
+          f"Reason: {reason}\n" \
+          f"Status Code: {status_code}\n" \
+          f"Certificate: {cert}\n" \
+          f"Timeout After: {timeout}s\n" \
+          f"----- REPORT END -----\n"
+    print(msg)
+    return res
 
 
 def _load_url(url: str) -> requests.Response:
@@ -54,8 +103,10 @@ def _load_url(url: str) -> requests.Response:
     user_agent = UserAgent()
     headers = {"User-Agent": user_agent.random}
     sess = requests.Session()
+    sess.hooks["response"].append(callback)
+    timeout = 15
     with sess:
-        res = sess.get(url, headers=headers)
+        res = sess.get(url, headers=headers, timeout=timeout)
     return res
 
 
@@ -96,11 +147,13 @@ class Webscraper:
     def __init__(self, parser: str) -> None:
         self._parser = parser
 
-        self._max_threads = 4
+        self._max_threads = 8
 
         self._user_agent = UserAgent()
         self._headers = {"User-Agent": self._user_agent.random}
         self._sess = requests.Session()
+        self._sess.hooks["response"].append(callback)
+        self._timeout = 15
 
     def load_url(self, url: str) -> requests.Response:
         """Load a single url.
@@ -117,7 +170,8 @@ class Webscraper:
 
         """
         with self._sess:
-            res = self._sess.get(url, headers=self._headers)
+            res = self._sess.get(
+                url, headers=self._headers, timeout=self._timeout)
         return res
 
     def load_urls(self, urls: list) -> list:
