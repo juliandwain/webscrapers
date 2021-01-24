@@ -218,3 +218,26 @@ JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1611470621757	geckodriver	INFO	Listening on 127.0.0.1:50077
+1611470624814	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofileZppN0I"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611470627436	Marionette	INFO	Listening on port 50087
+1611470627500	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611470628550	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://widgets.outbrain.com/widgetOBUserSync/obUserSync.html#pid=6406&dmpenabled=false&filterDMP=&csenabled=true&d=&gdpr=1&cmpNeeded=true&gdprVer=2&ccpa=1---&country=DE, line 3: SecurityError: The operation is insecure.
+1611471021288	geckodriver	INFO	Listening on 127.0.0.1:50620
+1611471024373	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\julia\\AppData\\Local\\Temp\\rust_mozprofilelBSIpt"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611471025934	Marionette	INFO	Listening on port 50628
+1611471026410	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611471027360	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1611471027990	Marionette	INFO	Stopped listening on port 50628
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
