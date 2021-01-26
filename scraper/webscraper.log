@@ -1,141 +1,754 @@
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.facebook.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.amazon.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.baidu.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.youtube.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.co.in:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.qq.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yahoo.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.wikipedia.org:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.amazon.com:80 "GET / HTTP/1.1" 301 183
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.amazon.com:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.qq.com:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.facebook.com:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.qq.com:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.facebook.com:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.youtube.com:80 "GET / HTTP/1.1" 302 0
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.co.in:80 "GET / HTTP/1.1" 302 233
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.google.co.in:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.qq.com:443 "GET / HTTP/1.1" 200 22558
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.youtube.com:80 "GET /supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F HTTP/1.1" 301 0
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.wikipedia.org:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.youtube.com:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.wikipedia.org:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.twitter.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yahoo.com:80 "GET / HTTP/1.1" 301 8
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.facebook.com:443 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.yahoo.com:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): m.facebook.com:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.youtube.com:443 "GET /supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F HTTP/1.1" 200 None
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.wikipedia.org:443 "GET / HTTP/1.1" 200 17845
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.live.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.amazon.com:443 "GET / HTTP/1.1" 200 2135
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.taobao.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.bing.com:80
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.live.com:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): outlook.live.com:443
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.google.co.in:443 "GET /?gws_rd=ssl HTTP/1.1" 200 None
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.taobao.com:80 "GET / HTTP/1.1" 301 278
-2021-01-24 17:41:44:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.taobao.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.twitter.com:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.twitter.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.instagram.com:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.bing.com:80 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://m.facebook.com:443 "GET /?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.yahoo.com:443 "GET / HTTP/1.1" 302 17
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): de.yahoo.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.weibo.com:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.instagram.com:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.instagram.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://outlook.live.com:443 "GET /owa/ HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.sina.com.cn:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.linkedin.com:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.twitter.com:443 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): twitter.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://de.yahoo.com:443 "GET /?p=us HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.taobao.com:443 "GET / HTTP/1.1" 302 258
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): world.taobao.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.baidu.com:80 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.sina.com.cn:80 "GET / HTTP/1.1" 302 258
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.sina.com.cn:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.sina.com.cn:443 "GET / HTTP/1.1" 200 530895
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yahoo.co.jp:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.linkedin.com:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.linkedin.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.instagram.com:443 "GET / HTTP/1.1" 200 13166
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://twitter.com:443 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.msn.com:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.vk.com:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.de:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.de:80 "GET / HTTP/1.1" 302 230
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.google.de:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.msn.com:80 "GET / HTTP/1.1" 302 143
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.msn.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.vk.com:80 "GET / HTTP/1.1" 301 164
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.vk.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.linkedin.com:443 "GET / HTTP/1.1" 200 13250
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yandex.ru:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.google.de:443 "GET /?gws_rd=ssl HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.hao123.com:80
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.weibo.com:80 "GET / HTTP/1.1" 302 215
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.weibo.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.vk.com:443 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.msn.com:443 "GET /de-de/ HTTP/1.1" 200 None
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): vk.com:443
-2021-01-24 17:41:45:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yandex.ru:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:46:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): yandex.ru:443
-2021-01-24 17:41:46:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.co.uk:80
-2021-01-24 17:41:46:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.reddit.com:80
-2021-01-24 17:41:46:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yahoo.co.jp:80 "GET / HTTP/1.1" 301 1
-2021-01-24 17:41:46:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.yahoo.co.jp:443
-2021-01-24 17:41:46:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://world.taobao.com:443 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.reddit.com:80 "GET / HTTP/1.1" 301 0
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.co.uk:80 "GET / HTTP/1.1" 302 233
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.reddit.com:443
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.google.co.uk:443
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.google.co.uk:443 "GET /?gws_rd=ssl HTTP/1.1" 200 None
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://vk.com:443 "GET / HTTP/1.1" 200 20831
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://yandex.ru:443 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.hao123.com:80 "GET / HTTP/1.1" 302 0
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.hao123.com:443
-2021-01-24 17:41:49:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.yahoo.co.jp:443 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:50:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.weibo.com:443 "GET / HTTP/1.1" 302 None
-2021-01-24 17:41:50:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): weibo.com:80
-2021-01-24 17:41:50:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://weibo.com:80 "GET /overseas HTTP/1.1" 302 215
-2021-01-24 17:41:50:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): weibo.com:443
-2021-01-24 17:41:51:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.hao123.com:443 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:51:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.reddit.com:443 "GET / HTTP/1.1" 200 None
-2021-01-24 17:41:51:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://weibo.com:443 "GET /overseas HTTP/1.1" 200 None
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-TW Taiwan prober hit error at byte 3627
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:utf-8  confidence = 0.87625
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:SHIFT_JIS Japanese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-JP Japanese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:GB2312 Chinese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-KR Korean confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:CP949 Korean confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:Big5 Chinese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-TW not active
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:windows-1251 Russian confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:KOI8-R Russian confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:ISO-8859-5 Russian confidence = 0.0
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:MacCyrillic Russian confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:IBM866 Russian confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:IBM855 Russian confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:ISO-8859-7 Greek confidence = 0.0
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:windows-1253 Greek confidence = 0.0
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:ISO-8859-5 Bulgarian confidence = 0.0
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:windows-1251 Bulgarian confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:TIS-620 Thai confidence = 0.0830356643160377
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:ISO-8859-9 Turkish confidence = 0.5346450325048946
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:windows-1255 Hebrew confidence = 0.0
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:windows-1255 Hebrew confidence = 0.0
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:windows-1255 Hebrew confidence = 0.0
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:utf-8  confidence = 0.87625
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:SHIFT_JIS Japanese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-JP Japanese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:GB2312 Chinese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-KR Korean confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:CP949 Korean confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:Big5 Chinese confidence = 0.01
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-TW not active
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:SHIFT_JIS Japanese prober hit error at byte 964
-2021-01-24 17:41:54:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-JP Japanese prober hit error at byte 62436
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): httpbin.org:80
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:http://httpbin.org:80 "GET / HTTP/1.1" 200 9593
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://httpbin.org/
+Time: 0.382s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://httpbin.org/
+Time: 0.382s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.382314 s
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.382314 s
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.youtube.com:80
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.youtube.com:80 "GET / HTTP/1.1" 302 0
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.youtube.com/
+Time: 0.068s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.youtube.com/
+Time: 0.068s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.youtube.com:80 "GET /supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F HTTP/1.1" 301 0
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.032s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.032s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.youtube.com:443
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.youtube.com:443 "GET /supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F HTTP/1.1" 200 None
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.105s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.105s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.105148 s
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.105148 s
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.facebook.com:80
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.facebook.com:80 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.facebook.com/
+Time: 0.157s
+Encoding: utf-8
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.facebook.com/
+Time: 0.157s
+Encoding: utf-8
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.facebook.com:443
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.facebook.com:443 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.facebook.com/
+Time: 0.166s
+Encoding: utf-8
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.facebook.com/
+Time: 0.166s
+Encoding: utf-8
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:30:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): m.facebook.com:443
+2021-01-26 13:31:31:[MainThread  ]:DEBUG:urllib3.connectionpool:https://m.facebook.com:443 "GET /?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr HTTP/1.1" 200 None
+2021-01-26 13:31:31:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://m.facebook.com/?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr
+Time: 0.244s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:31:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://m.facebook.com/?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr
+Time: 0.244s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:31:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.243701 s
+2021-01-26 13:31:31:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.243701 s
+2021-01-26 13:31:31:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.baidu.com:80
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.baidu.com:80 "GET / HTTP/1.1" 200 None
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.baidu.com/
+Time: 0.650s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.baidu.com/
+Time: 0.650s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.650204 s
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.650204 s
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yahoo.com:80
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.yahoo.com:80 "GET / HTTP/1.1" 301 8
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.yahoo.com/
+Time: 0.089s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.yahoo.com/
+Time: 0.089s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.yahoo.com:443
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.yahoo.com:443 "GET / HTTP/1.1" 302 17
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.yahoo.com/
+Time: 0.168s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.yahoo.com/
+Time: 0.168s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:32:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): de.yahoo.com:443
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:https://de.yahoo.com:443 "GET /?p=us HTTP/1.1" 200 None
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://de.yahoo.com/?p=us
+Time: 0.181s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://de.yahoo.com/?p=us
+Time: 0.181s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.180669 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.180669 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.amazon.com:80
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.amazon.com:80 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.amazon.com/
+Time: 0.033s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.amazon.com/
+Time: 0.033s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.amazon.com:443
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.amazon.com:443 "GET / HTTP/1.1" 200 2137
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.amazon.com/
+Time: 0.143s
+Encoding: ISO-8859-1
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.amazon.com/
+Time: 0.143s
+Encoding: ISO-8859-1
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.142950 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.142950 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.wikipedia.org:80
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.wikipedia.org:80 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.wikipedia.org/
+Time: 0.066s
+Encoding: None
+Reason: TLS Redirect
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.wikipedia.org/
+Time: 0.066s
+Encoding: None
+Reason: TLS Redirect
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.wikipedia.org:443
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.wikipedia.org:443 "GET / HTTP/1.1" 200 17847
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.wikipedia.org/
+Time: 0.095s
+Encoding: ISO-8859-1
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.wikipedia.org/
+Time: 0.095s
+Encoding: ISO-8859-1
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.094680 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.094680 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.qq.com:80
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.qq.com:80 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.qq.com/
+Time: 0.051s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.qq.com/
+Time: 0.051s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.qq.com:443
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.qq.com:443 "GET / HTTP/1.1" 200 22446
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.qq.com/
+Time: 0.042s
+Encoding: GB2312
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.qq.com/
+Time: 0.042s
+Encoding: GB2312
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.042209 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.042209 s
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.co.in:80
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.google.co.in:80 "GET / HTTP/1.1" 302 233
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.google.co.in/
+Time: 0.073s
+Encoding: UTF-8
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.google.co.in/
+Time: 0.073s
+Encoding: UTF-8
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:33:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.google.co.in:443
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.google.co.in:443 "GET /?gws_rd=ssl HTTP/1.1" 200 None
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.google.co.in/?gws_rd=ssl
+Time: 0.157s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.google.co.in/?gws_rd=ssl
+Time: 0.157s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.157230 s
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.157230 s
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.twitter.com:80
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.twitter.com:80 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.twitter.com/
+Time: 0.132s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.twitter.com/
+Time: 0.132s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.twitter.com:443
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.twitter.com:443 "GET / HTTP/1.1" 302 0
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.twitter.com/
+Time: 0.164s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.twitter.com/
+Time: 0.164s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): mobile.twitter.com:443
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:https://mobile.twitter.com:443 "GET / HTTP/1.1" 400 None
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://mobile.twitter.com/
+Time: 0.186s
+Encoding: utf-8
+Reason: Bad Request
+Status Code: 400
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://mobile.twitter.com/
+Time: 0.186s
+Encoding: utf-8
+Reason: Bad Request
+Status Code: 400
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.186128 s
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.186128 s
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.live.com:80
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.live.com:80 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.live.com/
+Time: 0.024s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.live.com/
+Time: 0.024s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): outlook.live.com:443
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:https://outlook.live.com:443 "GET /owa/ HTTP/1.1" 200 None
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://outlook.live.com/owa/
+Time: 0.126s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://outlook.live.com/owa/
+Time: 0.126s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.125622 s
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.125622 s
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.taobao.com:80
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.taobao.com:80 "GET / HTTP/1.1" 301 278
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.taobao.com/
+Time: 0.046s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.taobao.com/
+Time: 0.046s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:34:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.taobao.com:443
+2021-01-26 13:31:35:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.taobao.com:443 "GET / HTTP/1.1" 302 258
+2021-01-26 13:31:35:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.taobao.com/
+Time: 0.326s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:35:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.taobao.com/
+Time: 0.326s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:35:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): world.taobao.com:443
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:https://world.taobao.com:443 "GET / HTTP/1.1" 200 None
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://world.taobao.com
+Time: 1.027s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://world.taobao.com
+Time: 1.027s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 1.027308 s
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 1.027308 s
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.bing.com:80
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.bing.com:80 "GET / HTTP/1.1" 200 None
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.bing.com/
+Time: 0.063s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.bing.com/
+Time: 0.063s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.063275 s
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.063275 s
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.instagram.com:80
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.instagram.com:80 "GET / HTTP/1.1" 301 0
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.instagram.com/
+Time: 0.039s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.instagram.com/
+Time: 0.039s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.instagram.com:443
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.instagram.com:443 "GET / HTTP/1.1" 200 13171
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.instagram.com/
+Time: 0.246s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.instagram.com/
+Time: 0.246s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.245661 s
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 0.245661 s
+2021-01-26 13:31:36:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.weibo.com:80
+2021-01-26 13:31:37:[MainThread  ]:DEBUG:urllib3.connectionpool:http://www.weibo.com:80 "GET / HTTP/1.1" 302 215
+2021-01-26 13:31:37:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.weibo.com/
+Time: 0.510s
+Encoding: ISO-8859-1
+Reason: Moved Temporarily
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:37:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.weibo.com/
+Time: 0.510s
+Encoding: ISO-8859-1
+Reason: Moved Temporarily
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:37:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.weibo.com:443
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:urllib3.connectionpool:https://www.weibo.com:443 "GET / HTTP/1.1" 302 None
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.weibo.com/
+Time: 1.155s
+Encoding: ISO-8859-1
+Reason: Moved Temporarily
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.weibo.com/
+Time: 1.155s
+Encoding: ISO-8859-1
+Reason: Moved Temporarily
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): weibo.com:80
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:urllib3.connectionpool:http://weibo.com:80 "GET /overseas HTTP/1.1" 302 215
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://weibo.com/overseas
+Time: 0.535s
+Encoding: ISO-8859-1
+Reason: Moved Temporarily
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://weibo.com/overseas
+Time: 0.535s
+Encoding: ISO-8859-1
+Reason: Moved Temporarily
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-26 13:31:38:[MainThread  ]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): weibo.com:443

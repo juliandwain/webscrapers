@@ -4,12 +4,13 @@ __doc__ = """This module implements the webscraper.
 """
 
 import http.client
+import itertools
 import json
 import logging
 import os
 import pathlib
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
-from typing import Union
+from concurrent.futures import ThreadPoolExecutor  # ,ProcessPoolExecutor
+from typing import List, Union
 
 import requests
 from bs4 import BeautifulSoup
@@ -62,7 +63,7 @@ def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
         res.data = None
     if args:
         raise AssertionError(f"Have a look at what is in {args}")
-    msg = f"----- REPORT START -----\n" \
+    msg = f"\n----- REPORT START -----\n" \
           f"URL: {res.url}\n" \
           f"Time: {res.elapsed.total_seconds():.3f}s\n" \
           f"Encoding: {res.encoding}\n" \
@@ -70,7 +71,7 @@ def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
           f"Status Code: {res.status_code}\n" \
           f"Certificate: {kwargs.get('cert', None)}\n" \
           f"----- REPORT END -----\n"
-    print(msg)
+    REQUESTS_LOG.debug(msg)
     return res
 
 
@@ -78,7 +79,7 @@ class Webscraper:
     """[summary]
     """
 
-    def __init__(self, parser: str) -> None:
+    def __init__(self, parser: str, verbose: bool = False) -> None:
         """Init the class.
 
         Parameters
@@ -89,19 +90,57 @@ class Webscraper:
             * "html.parser"
             * "lxml"
 
+        verbose : bool
+            Determine whether a console output should be given,
+            by default False.
+
         """
         self._parser = parser
+        self._verbose = verbose
 
-        self._max_threads = 8
+        self._max_threads = os.cpu_count()*2 - 4
         self._max_processes = os.cpu_count() - 2
 
         self._user_agent = UserAgent()
         self._headers = {"User-Agent": self._user_agent.random}
         self._sess = requests.Session()
-        self._sess.hooks["response"].append(callback)
+        if self._verbose:
+            self._sess.hooks["response"].append(callback)
         self._timeout = 15
 
-    def load_url(self, url: str) -> requests.Response:
+    def load(
+        self,
+        url: Union[str, List[str]]
+    ) -> Union[requests.Response, List[requests.Response]]:
+        """Load a single or a list of urls.
+
+        Parameters
+        ----------
+        url : Union[str, List[str]]
+            The url or list of urls to be loaded.
+
+        Returns
+        -------
+        Union[requests.Response, List[requests.Response]]
+            A single or a list of `requests.Response` objects.
+
+        Raises
+        ------
+        AssertionError
+            If `url` is neither of type `str` nor of type `list`.
+
+        """
+        if isinstance(url, str):
+            url = url.strip()
+            return self._load_url(url)
+        elif isinstance(url, list):
+            url = [ur.strip() for ur in url]
+            return self._load_urls(url)
+        else:
+            raise AssertionError(
+                f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}.")
+
+    def _load_url(self, url: str) -> requests.Response:
         """Load a single url.
 
         Parameters
@@ -118,9 +157,12 @@ class Webscraper:
         with self._sess:
             res = self._sess.get(
                 url, headers=self._headers, timeout=self._timeout)
+        if self._verbose:
+            REQUESTS_LOG.debug("Total Time: %3f s",
+                               res.elapsed.total_seconds())
         return res
 
-    def load_urls(self, urls: list) -> list:
+    def _load_urls(self, urls: List[str]) -> List[requests.Response]:
         """Load a list of urls to response objects.
 
         Parameters
@@ -141,25 +183,28 @@ class Webscraper:
 
         """
         with ThreadPoolExecutor(max_workers=self._max_threads) as executor:
-            responses = list(executor.map(self.load_url, urls))
+            responses = list(executor.map(self._load_url, urls, chunksize=8))
             # wait until all threats are finished
             executor.shutdown(wait=True)
+        if self._verbose:
+            REQUESTS_LOG.debug("Total Time: %3f s", sum(
+                [res.elapsed.total_seconds() for res in responses]))
         return responses
 
     def parse(
         self,
-        res: Union[list, requests.Response]
-    ) -> Union[list, requests.Response]:
+        res: Union[requests.Response, List[requests.Response]]
+    ) -> Union[BeautifulSoup, List[BeautifulSoup]]:
         """Parse a single or a list of response objects.
 
         Parameters
         ----------
-        res : Union[list, requests.Response]
+        res : Union[requests.Response, List[requests.Response]]
             The response object(s).
 
         Returns
         -------
-        Union[list, requests.Response]
+        Union[BeautifulSoup, List[BeautifulSoup]]
             Depending on the input the same output is returned with parsed
             htmls.
 
@@ -170,7 +215,8 @@ class Webscraper:
                 obj.append(BeautifulSoup(response.content, self._parser))
             # with ProcessPoolExecutor(max_workers=self._max_processes) as executor:
             #     obj = list(executor.map(BeautifulSoup.__init__, [
-            #                re.content for re in res], len(res)*[self._parser]))
+            #                re.content for re in res], itertools.repeat(self._parser)))
         else:
-            obj = BeautifulSoup(res.content, self._parser)
+            obj = BeautifulSoup(res.content, self._parser,
+                                from_encoding=res.encoding)
         return obj
