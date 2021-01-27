@@ -42,26 +42,27 @@ if __name__ == "__main__":
 
     webscraper = ws.Webscraper(PARSER, verbose=True)
 
-    start = time.time()
-    response = webscraper.load(URL)
-    obj = webscraper.parse(response)
-    end = time.time()
-    dur = end - start
-    print(f"Response of 1 object took {dur:.2f}s.")
+    # start = time.time()
+    # response = webscraper.load(URL)
+    # obj = webscraper.parse(response)
+    # end = time.time()
+    # dur = end - start
+    # print(f"Response of 1 object took {dur:.2f}s.")
+#
+    # start = time.time()
+    # reponses = []
+    # for url in tqdm(LIST_OF_URLS):
+    #     reponses.append(webscraper.load(url))
+    # end = time.time()
+    # dur = end - start
+    # print(
+    #     f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in serial.")
 
     start = time.time()
-    reponses = []
-    for url in tqdm(LIST_OF_URLS):
-        reponses.append(webscraper.load(url))
-    end = time.time()
-    dur = end - start
-    print(
-        f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in serial.")
-
-    start = time.time()
-    responses_ = webscraper.load(LIST_OF_URLS)
+    webscraper.load(LIST_OF_URLS)
     end = time.time()
     dur = end - start
     print(
         f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in parallel.")
-    obj_ = webscraper.parse(responses_)
+    webscraper.parse()
+    print(webscraper)
