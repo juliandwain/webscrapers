@@ -4,7 +4,6 @@ __doc__ = """This module implements the webscraper.
 """
 
 import http.client
-import itertools
 import json
 import logging
 import os
@@ -108,6 +107,72 @@ class Webscraper:
             self._sess.hooks["response"].append(callback)
         self._timeout = 15
 
+        # initialize the response and data attributes
+        self._res = None
+        self._data = None
+        self._url = None
+
+        # define a variable which checks if the url are loaded
+        self._loaded = False
+
+    def __str__(self):
+        if isinstance(self._url, list):
+            msg = ""
+            for url in self._url:  # pylint: disable=not-an-iterable
+                msg += url + "\n"
+        elif isinstance(self._url, str):
+            msg = self._url + "\n"
+        else:
+            msg = "No url given."
+        return msg
+
+    @property
+    def res(self) -> Union[requests.Response, List[requests.Response]]:
+        """The response object.
+
+        Returns
+        -------
+        Union[request.Response, List[requenst.Response]]
+            The response object.
+
+        """
+        return self._res
+
+    @property
+    def data(self) -> Union[BeautifulSoup, List[BeautifulSoup]]:
+        """The data object.
+
+        Returns
+        -------
+        Union[BeautifulSoup, List[BeautifulSoup]]
+            The data object.
+        """
+        return self._data
+
+    @property
+    def url(self) -> Union[str, List[str]]:
+        """The url object.
+
+        Returns
+        -------
+        Union[str, List[str]]
+            The url object.
+
+        """
+        return self._url
+
+    @url.setter
+    def url(self, val: Union[str, List[str]]) -> None:
+        """Set a new url or a list of urls.
+
+        Parameters
+        ----------
+        val : Union[str, List[str]]
+            A single url or a list of urls.
+
+        """
+        self._url = val
+
     def load(
         self,
         url: Union[str, List[str]]
@@ -132,13 +197,17 @@ class Webscraper:
         """
         if isinstance(url, str):
             url = url.strip()
-            return self._load_url(url)
+            res = self._load_url(url)
         elif isinstance(url, list):
             url = [ur.strip() for ur in url]
-            return self._load_urls(url)
+            res = self._load_urls(url)
         else:
             raise AssertionError(
                 f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}.")
+        # set the attributes
+        setattr(self, "_res", res)
+        setattr(self, "_url", url)
+        self._loaded = True
 
     def _load_url(self, url: str) -> requests.Response:
         """Load a single url.
@@ -184,39 +253,55 @@ class Webscraper:
         """
         with ThreadPoolExecutor(max_workers=self._max_threads) as executor:
             responses = list(executor.map(self._load_url, urls, chunksize=8))
-            # wait until all threats are finished
+            # wait until all threads are finished
             executor.shutdown(wait=True)
         if self._verbose:
             REQUESTS_LOG.debug("Total Time: %3f s", sum(
                 [res.elapsed.total_seconds() for res in responses]))
         return responses
 
-    def parse(
-        self,
-        res: Union[requests.Response, List[requests.Response]]
-    ) -> Union[BeautifulSoup, List[BeautifulSoup]]:
+    def parse(self):
         """Parse a single or a list of response objects.
+
+        Raises
+        ------
+        AssertionError
+            If `self.load` has not been called before calling this method.
+
+        Notes
+        -----
+        The parsed response objects are stored in the `data` attribute of the
+        class which has type Union[BeautifulSoup, List[BeautifulSoup]]
+        depending on the input the same output is returned with parsed htmls.
+
+        """
+        if not self._loaded:
+            raise AssertionError(
+                f"Expected {self.load} to be called before calling {self.parse}.")
+        if isinstance(self._res, list):
+            obj = []
+            for response in tqdm(self._res):
+                obj.append(self._parse_response(response))
+            # with ProcessPoolExecutor(max_workers=self._max_processes) as executor:
+            #     obj = list(executor.map(self._parse_response, res))
+        else:
+            obj = self._parse_response(self._res)
+        setattr(self, "_data", obj)
+
+    def _parse_response(self, res: requests.Response) -> BeautifulSoup:
+        """Parse a single response object.
 
         Parameters
         ----------
-        res : Union[requests.Response, List[requests.Response]]
-            The response object(s).
+        res : requests.Response
+            The response to be parsed.
 
         Returns
         -------
-        Union[BeautifulSoup, List[BeautifulSoup]]
-            Depending on the input the same output is returned with parsed
-            htmls.
+        BeautifulSoup
+            The response as Beautifulsoup object.
 
         """
-        if isinstance(res, list):
-            obj = []
-            for response in tqdm(res):
-                obj.append(BeautifulSoup(response.content, self._parser))
-            # with ProcessPoolExecutor(max_workers=self._max_processes) as executor:
-            #     obj = list(executor.map(BeautifulSoup.__init__, [
-            #                re.content for re in res], itertools.repeat(self._parser)))
-        else:
-            obj = BeautifulSoup(res.content, self._parser,
-                                from_encoding=res.encoding)
+        obj = BeautifulSoup(res.content, self._parser,
+                            from_encoding=res.encoding)
         return obj
