@@ -14,9 +14,9 @@ driver = wd.Webdriver(URL, headless=False)
 
 with driver:
     # get the full html
-    html = driver.find_object(BY)[0]
+    html = driver.parse(BY)[0]
     # get the hyperlink to the markets
-    markets_link = driver.find_object(
+    markets_link = driver.parse(
         BY,
         element=html,
         val="#navMenu > ul > li:nth-child(1) > a"

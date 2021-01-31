@@ -5,8 +5,6 @@ __doc__ = """This is another test module.
 
 import time
 
-from tqdm import tqdm
-
 import scraper.webscraper as ws
 
 URL = "http://httpbin.org/"
