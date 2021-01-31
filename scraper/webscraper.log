@@ -1,702 +1,702 @@
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.facebook.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.baidu.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.youtube.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.twitter.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.co.in:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.amazon.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.wikipedia.org:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.live.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yahoo.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.taobao.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.bing.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.instagram.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.qq.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.weibo.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.sina.com.cn:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.linkedin.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yahoo.co.jp:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.vk.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.de:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.msn.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.youtube.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.youtube.com/
-Time: 0.045s
-Encoding: None
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.youtube.com/
-Time: 0.045s
-Encoding: None
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.youtube.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.facebook.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.facebook.com/
-Time: 0.065s
-Encoding: utf-8
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.facebook.com/
-Time: 0.065s
-Encoding: utf-8
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.facebook.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.live.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.twitter.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.youtube.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.live.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.baidu.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.facebook.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.bing.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.weibo.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yahoo.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.instagram.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.wikipedia.org:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.linkedin.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.taobao.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.sina.com.cn:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.amazon.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.co.in:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.qq.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yahoo.co.jp:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.msn.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.de:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.vk.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.live.com:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.live.com/
-Time: 0.062s
+Time: 0.023s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.live.com/
-Time: 0.062s
+Time: 0.023s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.amazon.com:80 "GET / HTTP/1.1" 301 183
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): outlook.live.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.youtube.com:80 "GET / HTTP/1.1" 302 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.amazon.com/
-Time: 0.066s
+URL: http://www.youtube.com/
+Time: 0.067s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.youtube.com/
+Time: 0.067s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.youtube.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.instagram.com:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.instagram.com/
+Time: 0.068s
 Encoding: ISO-8859-1
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.amazon.com/
-Time: 0.066s
+URL: http://www.instagram.com/
+Time: 0.068s
 Encoding: ISO-8859-1
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): outlook.live.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.amazon.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.wikipedia.org:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.instagram.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.taobao.com:80 "GET / HTTP/1.1" 301 278
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.taobao.com/
+Time: 0.088s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.taobao.com/
+Time: 0.088s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.taobao.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.sina.com.cn:80 "GET / HTTP/1.1" 302 258
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.sina.com.cn/
+Time: 0.091s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.sina.com.cn/
+Time: 0.091s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.wikipedia.org:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.wikipedia.org/
-Time: 0.072s
+Time: 0.094s
 Encoding: None
 Reason: TLS Redirect
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.wikipedia.org/
-Time: 0.072s
+Time: 0.094s
 Encoding: None
 Reason: TLS Redirect
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.wikipedia.org:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.qq.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.bing.com:80 "GET / HTTP/1.1" 200 None
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.wikipedia.org:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.sina.com.cn:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.amazon.com:80 "GET / HTTP/1.1" 301 183
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.amazon.com/
+Time: 0.099s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.amazon.com/
+Time: 0.099s
+Encoding: ISO-8859-1
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.qq.com:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.qq.com/
-Time: 0.068s
+Time: 0.099s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.qq.com/
-Time: 0.068s
+Time: 0.099s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.qq.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.instagram.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.qq.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.amazon.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.facebook.com:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.instagram.com/
-Time: 0.075s
-Encoding: ISO-8859-1
+URL: http://www.facebook.com/
+Time: 0.132s
+Encoding: utf-8
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.instagram.com/
-Time: 0.075s
-Encoding: ISO-8859-1
+URL: http://www.facebook.com/
+Time: 0.132s
+Encoding: utf-8
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.instagram.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.taobao.com:80 "GET / HTTP/1.1" 301 278
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.twitter.com:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.taobao.com/
-Time: 0.095s
-Encoding: ISO-8859-1
+URL: http://www.twitter.com/
+Time: 0.138s
+Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.taobao.com/
-Time: 0.095s
-Encoding: ISO-8859-1
+URL: http://www.twitter.com/
+Time: 0.138s
+Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.taobao.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.co.in:80 "GET / HTTP/1.1" 200 46745
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yahoo.com:80 "GET / HTTP/1.1" 301 8
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.facebook.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.twitter.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yahoo.com:80 "GET / HTTP/1.1" 301 8
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.yahoo.com/
-Time: 0.118s
+Time: 0.135s
 Encoding: ISO-8859-1
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.yahoo.com/
-Time: 0.118s
+Time: 0.135s
 Encoding: ISO-8859-1
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.yahoo.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.sina.com.cn:80 "GET / HTTP/1.1" 302 258
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.yahoo.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.co.in:80 "GET / HTTP/1.1" 200 46788
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.msn.com:80 "GET / HTTP/1.1" 302 143
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.sina.com.cn/
-Time: 0.123s
-Encoding: ISO-8859-1
+URL: http://www.msn.com/
+Time: 0.156s
+Encoding: utf-8
 Reason: Found
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.sina.com.cn/
-Time: 0.123s
-Encoding: ISO-8859-1
+URL: http://www.msn.com/
+Time: 0.156s
+Encoding: utf-8
 Reason: Found
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.sina.com.cn:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.bing.com:80 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.msn.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.bing.com/
+Time: 0.102s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.bing.com/
+Time: 0.102s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.101760 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.101760 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yandex.ru:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.de:80 "GET / HTTP/1.1" 200 46474
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.google.co.in/
-Time: 0.114s
+Time: 0.151s
 Encoding: UTF-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.google.co.in/
-Time: 0.114s
+Time: 0.151s
 Encoding: UTF-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.113735 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.113735 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.yandex.ru:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.twitter.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.150655 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.150655 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.hao123.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.youtube.com:80 "GET /supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.twitter.com/
-Time: 0.153s
+URL: http://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.136s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.twitter.com/
-Time: 0.153s
+URL: http://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.136s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.twitter.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.qq.com:443 "GET / HTTP/1.1" 200 22566
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.google.de/
+Time: 0.168s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.google.de/
+Time: 0.168s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.168151 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.168151 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.co.uk:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.youtube.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.qq.com:443 "GET / HTTP/1.1" 200 22472
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://www.qq.com/
-Time: 0.106s
+Time: 0.094s
 Encoding: GB2312
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://www.qq.com/
-Time: 0.106s
+Time: 0.094s
 Encoding: GB2312
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.105733 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.105733 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.hao123.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.msn.com:80 "GET / HTTP/1.1" 302 143
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.de:80 "GET / HTTP/1.1" 200 46465
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.msn.com/
-Time: 0.184s
-Encoding: utf-8
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.msn.com/
-Time: 0.184s
-Encoding: utf-8
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.msn.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.google.de/
-Time: 0.185s
-Encoding: UTF-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.google.de/
-Time: 0.185s
-Encoding: UTF-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.185176 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.185176 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.google.co.uk:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://outlook.live.com:443 "GET /owa/ HTTP/1.1" 200 None
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.094273 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.094273 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.reddit.com:80
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.wikipedia.org:443 "GET / HTTP/1.1" 200 17847
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://outlook.live.com:443 "GET /owa/ HTTP/1.1" 200 None
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://outlook.live.com/owa/
-Time: 0.156s
+Time: 0.218s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://outlook.live.com/owa/
-Time: 0.156s
+Time: 0.218s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.156340 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.156340 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.wikipedia.org:443 "GET / HTTP/1.1" 200 17847
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.vk.com:80 "GET / HTTP/1.1" 301 164
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.vk.com/
-Time: 0.221s
-Encoding: ISO-8859-1
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.vk.com/
-Time: 0.221s
-Encoding: ISO-8859-1
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): www.reddit.com:80
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.bing.com/
-Time: 0.134s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.bing.com/
-Time: 0.134s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.youtube.com:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.133674 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.133674 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.sina.com.cn:443 "GET / HTTP/1.1" 200 123403
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.wikipedia.org/
-Time: 0.160s
-Encoding: ISO-8859-1
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.wikipedia.org/
-Time: 0.160s
-Encoding: ISO-8859-1
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.159940 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.159940 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.linkedin.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.217748 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.217748 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.linkedin.com:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.linkedin.com/
-Time: 0.255s
+Time: 0.233s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.linkedin.com/
-Time: 0.255s
+Time: 0.233s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.linkedin.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.linkedin.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.sina.com.cn:443 "GET / HTTP/1.1" 200 123217
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.sina.com.cn/
-Time: 0.114s
+URL: https://www.wikipedia.org/
+Time: 0.133s
 Encoding: ISO-8859-1
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.sina.com.cn/
-Time: 0.114s
+URL: https://www.wikipedia.org/
+Time: 0.133s
 Encoding: ISO-8859-1
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.114430 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.114430 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.amazon.com:443 "GET / HTTP/1.1" 200 2139
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.132569 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.132569 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.vk.com:80 "GET / HTTP/1.1" 301 164
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.amazon.com/
-Time: 0.211s
+URL: http://www.vk.com/
+Time: 0.237s
 Encoding: ISO-8859-1
-Reason: OK
-Status Code: 200
+Reason: Moved Permanently
+Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.amazon.com/
-Time: 0.211s
+URL: http://www.vk.com/
+Time: 0.237s
 Encoding: ISO-8859-1
-Reason: OK
-Status Code: 200
+Reason: Moved Permanently
+Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.211453 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.211453 s
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.reddit.com:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.vk.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.reddit.com:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.reddit.com/
-Time: 0.050s
+Time: 0.048s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.reddit.com/
-Time: 0.050s
+Time: 0.048s
 Encoding: None
 Reason: Moved Permanently
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.reddit.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.yahoo.com:443 "GET / HTTP/1.1" 302 17
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.reddit.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.yahoo.com/
-Time: 0.175s
+URL: https://www.sina.com.cn/
+Time: 0.149s
 Encoding: ISO-8859-1
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.yahoo.com/
-Time: 0.175s
-Encoding: ISO-8859-1
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): de.yahoo.com:443
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yandex.ru:80 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.yandex.ru/
-Time: 0.164s
-Encoding: None
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.yandex.ru/
-Time: 0.164s
-Encoding: None
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.co.uk:80 "GET / HTTP/1.1" 200 46730
-2021-01-27 12:38:06:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): yandex.ru:443
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.google.co.uk/
-Time: 0.104s
-Encoding: UTF-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: http://www.google.co.uk/
-Time: 0.104s
-Encoding: UTF-8
+URL: https://www.sina.com.cn/
+Time: 0.149s
+Encoding: ISO-8859-1
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.103785 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.103785 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.twitter.com:443 "GET / HTTP/1.1" 301 0
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.148985 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.148985 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.youtube.com:443 "GET /supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F HTTP/1.1" 200 None
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.twitter.com/
-Time: 0.202s
-Encoding: None
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.twitter.com/
-Time: 0.202s
-Encoding: None
-Reason: Moved Permanently
-Status Code: 301
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): twitter.com:443
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.instagram.com:443 "GET / HTTP/1.1" 200 13182
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.instagram.com/
-Time: 0.310s
+URL: https://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.094s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.instagram.com/
-Time: 0.310s
+URL: https://www.youtube.com/supported_browsers?next_url=http%3A%2F%2Fwww.youtube.com%2F
+Time: 0.094s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.310403 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.310403 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.taobao.com:443 "GET / HTTP/1.1" 302 258
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.taobao.com/
-Time: 0.297s
-Encoding: ISO-8859-1
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.taobao.com/
-Time: 0.297s
-Encoding: ISO-8859-1
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): world.taobao.com:443
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.msn.com:443 "GET /de-de/ HTTP/1.1" 200 None
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.facebook.com:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.msn.com/de-de/
-Time: 0.204s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.msn.com/de-de/
-Time: 0.204s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.203927 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.203927 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.093520 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.093520 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.facebook.com:443 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.yahoo.com:443 "GET / HTTP/1.1" 302 17
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://www.facebook.com/
+Time: 0.170s
+Encoding: utf-8
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.facebook.com/
+Time: 0.170s
+Encoding: utf-8
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.amazon.com:443 "GET / HTTP/1.1" 200 2135
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.yahoo.com/
+Time: 0.164s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.yahoo.com/
+Time: 0.164s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.amazon.com/
+Time: 0.199s
+Encoding: ISO-8859-1
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.amazon.com/
+Time: 0.199s
+Encoding: ISO-8859-1
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.199332 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.199332 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.google.co.uk:80 "GET / HTTP/1.1" 200 46780
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): m.facebook.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): de.yahoo.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.google.co.uk/
+Time: 0.115s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.google.co.uk/
+Time: 0.115s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.114929 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.114929 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.twitter.com:443 "GET / HTTP/1.1" 302 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.twitter.com/
+Time: 0.209s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.twitter.com/
+Time: 0.209s
+Encoding: None
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): mobile.twitter.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.msn.com:443 "GET /de-de/ HTTP/1.1" 200 None
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.msn.com/de-de/
+Time: 0.191s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.msn.com/de-de/
+Time: 0.191s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.190720 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.190720 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.instagram.com:443 "GET / HTTP/1.1" 200 13223
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.instagram.com/
 Time: 0.354s
 Encoding: utf-8
 Reason: OK
@@ -704,9 +704,9 @@ Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.facebook.com/
+URL: https://www.instagram.com/
 Time: 0.354s
 Encoding: utf-8
 Reason: OK
@@ -714,367 +714,439 @@ Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.354407 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.354407 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://de.yahoo.com:443 "GET /?p=us HTTP/1.1" 200 None
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.linkedin.com:443 "GET / HTTP/1.1" 200 13351
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.353916 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.353916 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.vk.com:443 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.linkedin.com/
-Time: 0.315s
+URL: https://www.vk.com/
+Time: 0.188s
+Encoding: windows-1251
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.vk.com/
+Time: 0.188s
+Encoding: windows-1251
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): vk.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.taobao.com:443 "GET / HTTP/1.1" 302 258
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.taobao.com/
+Time: 0.355s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.taobao.com/
+Time: 0.355s
+Encoding: ISO-8859-1
+Reason: Found
+Status Code: 302
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): world.taobao.com:443
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://de.yahoo.com:443 "GET /?p=us HTTP/1.1" 200 None
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://m.facebook.com:443 "GET /?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr HTTP/1.1" 200 None
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://m.facebook.com/?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr
+Time: 0.225s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.linkedin.com/
-Time: 0.315s
+URL: https://m.facebook.com/?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr
+Time: 0.225s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.315120 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.315120 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.weibo.com:80 "GET / HTTP/1.1" 302 215
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.224534 s
+2021-01-31 13:21:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.224534 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.linkedin.com:443 "GET / HTTP/1.1" 200 13505
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.linkedin.com/
+Time: 0.318s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.linkedin.com/
+Time: 0.318s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.318393 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.318393 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.weibo.com:80 "GET / HTTP/1.1" 302 215
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.weibo.com/
-Time: 0.596s
+Time: 0.566s
 Encoding: ISO-8859-1
 Reason: Moved Temporarily
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.weibo.com/
-Time: 0.596s
+Time: 0.566s
 Encoding: ISO-8859-1
 Reason: Moved Temporarily
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.weibo.com:443
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://twitter.com:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://yandex.ru:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yahoo.co.jp:80 "GET / HTTP/1.1" 301 1
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.weibo.com:443
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yandex.ru:80 "GET / HTTP/1.1" 301 0
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.yandex.ru/
+Time: 0.428s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: http://www.yandex.ru/
+Time: 0.428s
+Encoding: None
+Reason: Moved Permanently
+Status Code: 301
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://mobile.twitter.com:443 "GET / HTTP/1.1" 400 None
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): yandex.ru:443
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://mobile.twitter.com/
+Time: 0.271s
+Encoding: utf-8
+Reason: Bad Request
+Status Code: 400
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://mobile.twitter.com/
+Time: 0.271s
+Encoding: utf-8
+Reason: Bad Request
+Status Code: 400
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.270597 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.270597 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.yahoo.co.jp:80 "GET / HTTP/1.1" 301 1
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.yahoo.co.jp/
-Time: 0.645s
+Time: 0.628s
 Encoding: ISO-8859-1
 Reason: Redirect
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.yahoo.co.jp/
-Time: 0.645s
+Time: 0.628s
 Encoding: ISO-8859-1
 Reason: Redirect
 Status Code: 301
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.yahoo.co.jp:443
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.yahoo.co.jp:443
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.baidu.com:80 "GET / HTTP/1.1" 200 None
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://vk.com:443 "GET / HTTP/1.1" 200 21039
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://twitter.com/
-Time: 0.269s
-Encoding: utf-8
+URL: https://vk.com/
+Time: 0.250s
+Encoding: windows-1251
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://twitter.com/
-Time: 0.269s
-Encoding: utf-8
+URL: https://vk.com/
+Time: 0.250s
+Encoding: windows-1251
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.268685 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.268685 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.baidu.com:80 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.250140 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.250140 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://de.yahoo.com/?p=us
+Time: 0.179s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://de.yahoo.com/?p=us
+Time: 0.179s
+Encoding: UTF-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.178551 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.178551 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://yandex.ru:443 "GET / HTTP/1.1" 200 None
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.hao123.com:80 "GET / HTTP/1.1" 200 None
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://yandex.ru/
-Time: 0.332s
+Time: 0.340s
 Encoding: UTF-8
 Reason: Ok
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://yandex.ru/
-Time: 0.332s
+Time: 0.340s
 Encoding: UTF-8
 Reason: Ok
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.332148 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.332148 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://de.yahoo.com/?p=us
-Time: 0.195s
-Encoding: UTF-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://de.yahoo.com/?p=us
-Time: 0.195s
-Encoding: UTF-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.194753 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.youtube.com/
-Time: 0.202s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.194753 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.youtube.com/
-Time: 0.202s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.202341 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.202341 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://www.hao123.com:80 "GET / HTTP/1.1" 302 0
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.hao123.com/
-Time: 0.743s
-Encoding: UTF-8
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: http://www.hao123.com/
-Time: 0.743s
-Encoding: UTF-8
-Reason: Found
-Status Code: 302
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.hao123.com:443
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://world.taobao.com:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.339800 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.339800 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://world.taobao.com:443 "GET / HTTP/1.1" 200 None
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://world.taobao.com
-Time: 0.833s
+Time: 0.761s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://world.taobao.com
-Time: 0.833s
+Time: 0.761s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.832934 s
-2021-01-27 12:38:07:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.832934 s
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.760707 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.760707 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.baidu.com/
-Time: 0.691s
+Time: 0.685s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://www.baidu.com/
-Time: 0.691s
+Time: 0.685s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.690564 s
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.690564 s
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.yahoo.co.jp:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.weibo.com:443 "GET / HTTP/1.1" 302 None
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.684961 s
+2021-01-31 13:21:09:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.684961 s
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.yahoo.co.jp:443 "GET / HTTP/1.1" 200 None
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.weibo.com:443 "GET / HTTP/1.1" 302 None
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://www.weibo.com/
-Time: 1.128s
+Time: 1.155s
 Encoding: ISO-8859-1
 Reason: Moved Temporarily
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://www.weibo.com/
-Time: 1.128s
+Time: 1.155s
 Encoding: ISO-8859-1
 Reason: Moved Temporarily
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): weibo.com:80
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): weibo.com:80
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://www.yahoo.co.jp:443/
-Time: 0.952s
+Time: 0.993s
 Encoding: UTF-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://www.yahoo.co.jp:443/
-Time: 0.952s
+Time: 0.993s
 Encoding: UTF-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.952068 s
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.952068 s
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.reddit.com:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://weibo.com:80 "GET /overseas HTTP/1.1" 302 215
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.993045 s
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.993045 s
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:http://weibo.com:80 "GET /overseas HTTP/1.1" 302 215
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://weibo.com/overseas
-Time: 0.534s
+Time: 0.526s
 Encoding: ISO-8859-1
 Reason: Moved Temporarily
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: http://weibo.com/overseas
-Time: 0.534s
+Time: 0.526s
 Encoding: ISO-8859-1
 Reason: Moved Temporarily
 Status Code: 302
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:08:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): weibo.com:443
-2021-01-27 12:38:09:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.hao123.com:443 "GET / HTTP/1.1" 200 None
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://weibo.com:443 "GET /overseas HTTP/1.1" 200 None
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:10:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): weibo.com:443
+2021-01-31 13:21:11:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://weibo.com:443 "GET /overseas HTTP/1.1" 200 None
+2021-01-31 13:21:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://weibo.com/overseas
-Time: 1.257s
+Time: 1.270s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
 URL: https://weibo.com/overseas
-Time: 1.257s
+Time: 1.270s
 Encoding: utf-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.257449 s
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.257449 s
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.270355 s
+2021-01-31 13:21:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.270355 s
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:urllib3.connectionpool:https://www.reddit.com:443 "GET / HTTP/1.1" 200 None
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.reddit.com/
-Time: 1.699s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.reddit.com/
-Time: 1.699s
-Encoding: utf-8
-Reason: OK
-Status Code: 200
-Certificate: None
------ REPORT END -----
-
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.699462 s
-2021-01-27 12:38:10:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.699462 s
-2021-01-27 12:38:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
------ REPORT START -----
-URL: https://www.hao123.com/
-Time: 1.480s
+URL: http://www.hao123.com/
+Time: 0.861s
 Encoding: UTF-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
 ----- REPORT START -----
-URL: https://www.hao123.com/
-Time: 1.480s
+URL: http://www.hao123.com/
+Time: 0.861s
 Encoding: UTF-8
 Reason: OK
 Status Code: 200
 Certificate: None
 ----- REPORT END -----
 
-2021-01-27 12:38:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.480432 s
-2021-01-27 12:38:11:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 1.480432 s
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.861471 s
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 0.861471 s
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.reddit.com/
+Time: 3.333s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:
+----- REPORT START -----
+URL: https://www.reddit.com/
+Time: 3.333s
+Encoding: utf-8
+Reason: OK
+Status Code: 200
+Certificate: None
+----- REPORT END -----
+
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 3.332625 s
+2021-01-31 13:21:12:[ThreadPoolEx]:DEBUG:requests.packages.urllib3:Total Time: 3.332625 s
+2021-01-31 13:21:12:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 11.451737 s
+2021-01-31 13:21:12:[MainThread  ]:DEBUG:requests.packages.urllib3:Total Time: 11.451737 s
+2021-01-31 13:21:12:[MainThread  ]:DEBUG:chardet.charsetprober:SHIFT_JIS Japanese prober hit error at byte 964
+2021-01-31 13:21:12:[MainThread  ]:DEBUG:chardet.charsetprober:EUC-JP Japanese prober hit error at byte 62488

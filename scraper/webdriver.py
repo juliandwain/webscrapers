@@ -16,13 +16,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
 from .wait import element_wait
+from ._base import Scraper
 
 __all__ = [
     "Webdriver",
 ]
 
 
-class Webdriver:
+class Webdriver(Scraper):
     """The `Webdriver` class.
     """
 
@@ -38,6 +39,7 @@ class Webdriver:
             without opening a window, by default True.
 
         """
+        super().__init__()
         # define the path to the driver
         self._path = pathlib.Path("./scraper/drivers/geckodriver.exe")
         # set some options using the built-in Options class
@@ -46,8 +48,7 @@ class Webdriver:
         # define the engine, i.e. the browser to be used
         self._engine = webdriver.Firefox(
             options=options, executable_path=self._path)
-        # save the url
-        self._url = url
+        self.url = url
         # define a strategy dictionary
         self._strategy_dic = {
             "id": By.ID,
@@ -63,11 +64,21 @@ class Webdriver:
         self._timeout = 10
 
     def __enter__(self) -> None:
-        """Load the `url` given when entering.
-        """
-        self.load_url()
+        self.load()
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        """Exit the context manager and ensure that the connection is closed.
+
+        Parameters
+        ----------
+        exc_type : [type]
+            The  execution type.
+        exc_val : [type]
+            The execution value.
+        exc_tb : [type]
+            The execution traceback.
+
+        """
         self._engine.quit()
 
     @property
@@ -81,30 +92,6 @@ class Webdriver:
 
         """
         return self._engine
-
-    @property
-    def url(self) -> str:
-        """Get the current `url`.
-
-        Returns
-        -------
-        str
-            The current url.
-
-        """
-        return self._url
-
-    @url.setter
-    def url(self, val: str) -> None:
-        """Set a new url.
-
-        Parameters
-        ----------
-        val : str
-            The new url.
-
-        """
-        self._url = val
 
     def click_hyperlink(self, hyperlink) -> None:
         """Click a hyperlink object.
@@ -132,7 +119,7 @@ class Webdriver:
                 iter(self._engine.window_handles), self._engine.window_handles[0])
             self._engine.switch_to.window(window_after)
 
-    def find_object(
+    def parse(  # pylint: disable=arguments-differ
             self,
             by_strat: Optional[str],
             **kwargs: dict
@@ -209,8 +196,8 @@ class Webdriver:
         )
         return obj
 
-    def load_url(self) -> None:
-        """Load to given url.
+    def load(self) -> None:  # pylint: disable=arguments-differ
+        """Load the given url.
 
         Notes
         -----

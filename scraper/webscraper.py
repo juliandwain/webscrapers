@@ -16,6 +16,8 @@ from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 from tqdm import tqdm
 
+from ._base import Scraper
+
 __all__ = [
     "Webscraper",
 ]
@@ -74,8 +76,8 @@ def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
     return res
 
 
-class Webscraper:
-    """[summary]
+class Webscraper(Scraper):
+    """The Webscraper class.
     """
 
     def __init__(self, parser: str, verbose: bool = False) -> None:
@@ -94,6 +96,7 @@ class Webscraper:
             by default False.
 
         """
+        super().__init__()
         self._parser = parser
         self._verbose = verbose
 
@@ -110,7 +113,6 @@ class Webscraper:
         # initialize the response and data attributes
         self._res = None
         self._data = None
-        self._url = None
 
         # define a variable which checks if the url are loaded
         self._loaded = False
@@ -148,30 +150,6 @@ class Webscraper:
             The data object.
         """
         return self._data
-
-    @property
-    def url(self) -> Union[str, List[str]]:
-        """The url object.
-
-        Returns
-        -------
-        Union[str, List[str]]
-            The url object.
-
-        """
-        return self._url
-
-    @url.setter
-    def url(self, val: Union[str, List[str]]) -> None:
-        """Set a new url or a list of urls.
-
-        Parameters
-        ----------
-        val : Union[str, List[str]]
-            A single url or a list of urls.
-
-        """
-        self._url = val
 
     def load(
         self,
