@@ -11,7 +11,7 @@ class Scraper(abc.ABC):
     """The base scraper class.
     """
 
-    def __init__(self, *args, **kwargs):  # pylint: disable=unused-argument
+    def __init__(self, *args, **kwargs):
         self._url = None
 
     @property
