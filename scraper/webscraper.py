@@ -92,7 +92,7 @@ class Webscraper(Scraper):
             * "lxml"
 
         verbose : bool
-            Determine whether a console output should be given,
+            Determine whether the output should be written to the log file,
             by default False.
 
         """
