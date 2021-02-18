@@ -15,12 +15,12 @@ class Scraper(abc.ABC):
         self._url = None
 
     @property
-    def url(self) -> Union[str, List[str]]:
+    def url(self) -> Union[None, str, List[str]]:
         """The url object.
 
         Returns
         -------
-        Union[str, List[str]]
+        Union[None, str, List[str]]
             The url object.
 
         """
