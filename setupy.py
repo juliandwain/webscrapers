@@ -13,7 +13,6 @@ def read(fname: str):
             data = file.read()
         else:
             data = file.read().splitlines()
-    print(type(data))
     return data
 
 
@@ -27,6 +26,7 @@ setuptools.setup(
     url="https://github.com/juliandwain/webscrapers",
     packages=setuptools.find_packages(),
     long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     install_requires=read("requirements.txt"),
     python_requires=">=3.8",
 )
