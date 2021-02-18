@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+environment.yml
+requirements.txt
+setupy.py
+scraper/__init__.py
+scraper/_base.py
+scraper/wait.py
+scraper/webdriver.py
+scraper/webscraper.py
+xscrapers.egg-info/PKG-INFO
+xscrapers.egg-info/SOURCES.txt
+xscrapers.egg-info/dependency_links.txt
+xscrapers.egg-info/requires.txt
+xscrapers.egg-info/top_level.txt

@@ -1,4 +1,3 @@
-# web scrapers
+# XSCRAPERS
 
-This is an example project.
-Here some web scraping techniques are implemented using OOP and concurrent execution.
+The [XSCRAPERS](https://github.com/juliandwain/webscrapers) package provides an OOP interface to some simple webscraping techniques.

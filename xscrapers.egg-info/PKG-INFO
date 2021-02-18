@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: xscrapers
+Version: 0.0.2
+Summary: A simple webscraping framework.
+Home-page: https://github.com/juliandwain/webscrapers
+Author: Julian Dwain Stang
+Author-email: julian.stang@web.de
+License: MIT
+Description: # XSCRAPERS
+        
+        The [XSCRAPERS](https://github.com/juliandwain/webscrapers) package provides an OOP interface to some simple webscraping techniques.
+        
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown

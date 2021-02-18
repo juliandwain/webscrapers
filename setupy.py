@@ -17,7 +17,7 @@ def read(fname: str):
 
 
 setuptools.setup(
-    name="webscrapers",
+    name="xscrapers",
     version=__version__,
     author="Julian Dwain Stang",
     author_email="julian.stang@web.de",
