@@ -18,9 +18,6 @@ from tqdm import tqdm
 
 from ._base import Scraper
 
-__all__ = [
-    "Webscraper",
-]
 
 # set up the logging configuration
 http.client.HTTPConnection.debuglevel = 0
@@ -120,7 +117,7 @@ class Webscraper(Scraper):
     def __str__(self):
         if isinstance(self._url, list):
             msg = ""
-            for url in self._url:  # pylint: disable=not-an-iterable
+            for url in self._url:
                 msg += url + "\n"
         elif isinstance(self._url, str):
             msg = self._url + "\n"
@@ -129,7 +126,7 @@ class Webscraper(Scraper):
         return msg
 
     @property
-    def res(self) -> Union[requests.Response, List[requests.Response]]:
+    def res(self) -> Union[None, requests.Response, List[requests.Response]]:
         """The response object.
 
         Returns
@@ -141,7 +138,7 @@ class Webscraper(Scraper):
         return self._res
 
     @property
-    def data(self) -> Union[BeautifulSoup, List[BeautifulSoup]]:
+    def data(self) -> Union[None, BeautifulSoup, List[BeautifulSoup]]:
         """The data object.
 
         Returns
@@ -152,20 +149,14 @@ class Webscraper(Scraper):
         return self._data
 
     def load(
-        self,
-        url: Union[str, List[str]]
-    ) -> Union[requests.Response, List[requests.Response]]:
+            self,
+            url: Union[str, List[str]]) -> None:
         """Load a single or a list of urls.
 
         Parameters
         ----------
         url : Union[str, List[str]]
             The url or list of urls to be loaded.
-
-        Returns
-        -------
-        Union[requests.Response, List[requests.Response]]
-            A single or a list of `requests.Response` objects.
 
         Raises
         ------

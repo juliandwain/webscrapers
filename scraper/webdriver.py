@@ -18,10 +18,6 @@ from selenium.webdriver.firefox.options import Options
 from .wait import element_wait
 from ._base import Scraper
 
-__all__ = [
-    "Webdriver",
-]
-
 
 class Webdriver(Scraper):
     """The `Webdriver` class.

@@ -8,10 +8,6 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-__all__ = [
-    "element_wait",
-]
-
 
 CONDITION_DIC = {
     "presence": EC.presence_of_element_located,
