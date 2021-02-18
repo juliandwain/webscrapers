@@ -18,5 +18,5 @@ setup(
     license="MIT",
     url="https://github.com/juliandwain/webscrapers",
     packages=find_packages(),
-    long_description=read('README'),
+    long_description=read("README.md"),
 )
