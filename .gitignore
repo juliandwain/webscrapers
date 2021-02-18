@@ -11,3 +11,11 @@ __pypackages__/
 
 # pylint settings
 .pylintrc
+
+# test files
+covid.py
+test.py
+test_2.py
+
+# log files
+*.log
