@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Distribution / packaging
+build/
+dist/
+xscrapers.egg-info/
+
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
 
@@ -16,6 +21,10 @@ __pypackages__/
 covid.py
 test.py
 test_2.py
+compilation_info.md
 
 # log files
 *.log
+
+# Sphinx documentation
+docs/_build/
