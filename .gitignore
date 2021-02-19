@@ -25,6 +25,8 @@ compilation_info.md
 
 # log files
 *.log
+# log directory
+log/
 
 # Sphinx documentation
 docs/_build/
