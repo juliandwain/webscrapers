@@ -3,7 +3,7 @@
 import time
 import unittest
 
-import webscraper as ws
+import scraper.webscraper as ws
 
 
 class TestWebScraper(unittest.TestCase):
@@ -42,13 +42,18 @@ class TestWebScraper(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_single_url(self):
+    def test_multiple_url(self):
         start = time.time()
         self.webscraper.load(self.urls)
         end = time.time()
         dur = end - start
         print(
             f"Response of {len(self.urls)} objects took {dur:.2f}s in parallel.")
+
+    def test_single_url(self):
+        self.webscraper.load(self.url)
+        dur = self.webscraper.res.elapsed.total_seconds()
+        print(f"Response of single object took {dur:.2f}s.")
 
 
 if __name__ == '__main__':
