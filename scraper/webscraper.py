@@ -7,7 +7,6 @@ import http.client
 import json
 import logging
 import os
-import pathlib
 from concurrent.futures import ThreadPoolExecutor  # ,ProcessPoolExecutor
 from typing import List, Union
 
@@ -16,12 +15,12 @@ from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 from tqdm import tqdm
 
+from . import LOG_DIR
 from ._base import Scraper
-
 
 # set up the logging configuration
 http.client.HTTPConnection.debuglevel = 0
-LOG_FILE = pathlib.Path(f"./scraper/{__name__.split('.')[-1]}.log")
+LOG_FILE = LOG_DIR / f"{__name__.split('.')[-1]}.log"
 
 REQUESTS_LOG = logging.getLogger("requests.packages.urllib3")
 REQUESTS_LOG.setLevel(logging.DEBUG)
@@ -131,7 +130,7 @@ class Webscraper(Scraper):
 
         Returns
         -------
-        Union[request.Response, List[requenst.Response]]
+        Union[None, request.Response, List[requenst.Response]]
             The response object.
 
         """
@@ -143,8 +142,9 @@ class Webscraper(Scraper):
 
         Returns
         -------
-        Union[BeautifulSoup, List[BeautifulSoup]]
+        Union[None, BeautifulSoup, List[BeautifulSoup]]
             The data object.
+
         """
         return self._data
 
