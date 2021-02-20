@@ -4,8 +4,6 @@ import os
 
 import setuptools
 
-from scraper import __version__
-
 
 def read(fname: str):
     with open(os.path.join(os.path.dirname(__file__), fname), mode="r", encoding="utf-8") as file:
@@ -18,7 +16,7 @@ def read(fname: str):
 
 setuptools.setup(
     name="xscrapers",
-    version=__version__,
+    version="0.0.4",
     author="Julian Dwain Stang",
     author_email="julian.stang@web.de",
     description=("A simple webscraping framework."),
