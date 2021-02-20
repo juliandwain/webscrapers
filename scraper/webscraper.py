@@ -53,11 +53,6 @@ def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
     """
     # indicate that the callback funtion was called
     res.hook_called = True
-    # save json data if available
-    try:
-        res.data = res.json()
-    except json.decoder.JSONDecodeError:
-        res.data = None
     if args:
         raise AssertionError(f"Have a look at what is in {args}")
     msg = f"\n----- REPORT START -----\n" \
@@ -195,6 +190,11 @@ class Webscraper(Scraper):
         with self._sess:
             res = self._sess.get(
                 url, headers=self._headers, timeout=self._timeout)
+            # save json data if available
+            try:
+                res.data = res.json()
+            except json.decoder.JSONDecodeError:
+                pass
         if self._verbose:
             REQUESTS_LOG.debug("Total Time: %3f s",
                                res.elapsed.total_seconds())
