@@ -16,7 +16,7 @@ def read(fname: str):
 
 setuptools.setup(
     name="xscrapers",
-    version="0.0.4",
+    version="0.0.5",
     author="Julian Dwain Stang",
     author_email="julian.stang@web.de",
     description=("A simple webscraping framework."),
