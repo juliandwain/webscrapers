@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+__doc__ = """
+This is an example on how to extend the ``Webscraper`` class to
+save pictures to files.
+"""
+
 import os
 import pathlib
 from typing import Union
