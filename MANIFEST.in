@@ -2,4 +2,3 @@ include README
 include LICENSE
 include requirements.txt
 include environment.yml
-recursive-include scraper/drivers/ *

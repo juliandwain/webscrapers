@@ -30,3 +30,6 @@ log/
 
 # Sphinx documentation
 docs/_build/
+
+# drivers
+drivers/
