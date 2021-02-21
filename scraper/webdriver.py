@@ -177,7 +177,7 @@ class Webdriver(Scraper):
 
         References
         ----------
-        .. [1] https://selenium-python.readthedocs.io/locating-elements.html
+        [1] https://selenium-python.readthedocs.io/locating-elements.html
 
         """
         by_strat = self._strategy_dic.get(by_strat, By.CSS_SELECTOR)
