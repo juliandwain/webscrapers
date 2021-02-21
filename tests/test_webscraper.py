@@ -4,6 +4,7 @@ import time
 import unittest
 
 import scraper.webscraper as ws
+from bs4 import BeautifulSoup
 
 
 class TestWebScraper(unittest.TestCase):
@@ -49,11 +50,25 @@ class TestWebScraper(unittest.TestCase):
         dur = end - start
         print(
             f"Response of {len(self.urls)} objects took {dur:.2f}s in parallel.")
+        assert self.webscraper._loaded
+        assert isinstance(self.webscraper.url, list)
 
     def test_single_url(self):
         self.webscraper.load(self.url)
         dur = self.webscraper.res.elapsed.total_seconds()
         print(f"Response of single object took {dur:.2f}s.")
+        assert self.webscraper._loaded
+        assert isinstance(self.webscraper.url, str)
+
+    def test_multiple_parse(self):
+        self.webscraper.load(self.urls)
+        self.webscraper.parse()
+        assert isinstance(self.webscraper.data, list)
+
+    def test_single_parse(self):
+        self.webscraper.load(self.url)
+        self.webscraper.parse()
+        assert isinstance(self.webscraper.data, BeautifulSoup)
 
 
 if __name__ == '__main__':
