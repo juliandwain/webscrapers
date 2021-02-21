@@ -4,6 +4,7 @@ __doc__ = """This module implements the webscraper.
 """
 
 import http.client
+import itertools
 import json
 import logging
 import os
@@ -173,7 +174,7 @@ class Webscraper(Scraper):
         setattr(self, "_url", url)
         self._loaded = True
 
-    def _load_url(self, url: str) -> requests.Response:
+    def _load_url(self, url: str) -> Union[requests.Response, bool]:
         """Load a single url.
 
         Parameters
@@ -183,21 +184,26 @@ class Webscraper(Scraper):
 
         Returns
         -------
-        requests.Response
-            The corresponding response object
+        Union[requests.Response, bool]
+            The corresponding response object. If the request fails
+            for some reason, False is returned.
 
         """
         with self._sess:
-            res = self._sess.get(
-                url, headers=self._headers, timeout=self._timeout)
-            # save json data if available
             try:
-                res.data = res.json()
-            except json.decoder.JSONDecodeError:
-                pass
-        if self._verbose:
-            REQUESTS_LOG.debug("Total Time: %3f s",
-                               res.elapsed.total_seconds())
+                res = self._sess.get(
+                    url, headers=self._headers, timeout=self._timeout)
+                # save json data if available
+                try:
+                    res.data = res.json()
+                except json.decoder.JSONDecodeError:
+                    pass
+                if self._verbose:
+                    REQUESTS_LOG.debug("Total Time: %3f s",
+                                       res.elapsed.total_seconds())
+            except requests.exceptions.RequestException as e:
+                print(e)
+                res = False
         return res
 
     def _load_urls(self, urls: List[str]) -> List[requests.Response]:
@@ -210,7 +216,7 @@ class Webscraper(Scraper):
 
         Returns
         -------
-        list
+        List[requests.Response]
             A list of requests.Response objects corresponding to the urls given.
 
         Notes
@@ -224,9 +230,13 @@ class Webscraper(Scraper):
             responses = list(executor.map(self._load_url, urls, chunksize=8))
             # wait until all threads are finished
             executor.shutdown(wait=True)
+        # TODO: filters out Failed Responses and Response [400]
+        mask = list(itertools.compress(range(len(responses)), responses))
+        non_mask = list(set(range(mask[0], mask[-1])) - set(mask))
+        responses = [responses[i] for i in mask]
         if self._verbose:
-            REQUESTS_LOG.debug("Total Time: %3f s", sum(
-                [res.elapsed.total_seconds() for res in responses]))
+            REQUESTS_LOG.warning(
+                f"Request for the following URLs failed: {[urls[i] for i in non_mask]}!")
         return responses
 
     def parse(self):
