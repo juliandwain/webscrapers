@@ -4,7 +4,6 @@ __doc__ = """This module implements the webscraper.
 """
 
 import http.client
-import itertools
 import json
 import logging
 import os
@@ -28,14 +27,22 @@ REQUESTS_LOG.setLevel(logging.DEBUG)
 REQUESTS_LOG.propagate = True
 
 FILE_HANDLER = logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8")
-FORMATTER = logging.Formatter(
+FILEFORMAT = logging.Formatter(
     "%(asctime)s:[%(threadName)-12.12s]:%(levelname)s:%(name)s:%(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"
 )
-FILE_HANDLER.setFormatter(FORMATTER)
+FILE_HANDLER.setFormatter(FILEFORMAT)
+
+STREAM_HANDLER = logging.StreamHandler()
+STREAM_HANDLER.setLevel(logging.WARNING)
+STREAMFORMAT = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
+STREAM_HANDLER.setFormatter(STREAMFORMAT)
+
 REQUESTS_LOG.addHandler(FILE_HANDLER)
-logging.basicConfig(handlers=[FILE_HANDLER])
-logging.getLogger().setLevel(logging.DEBUG)
+REQUESTS_LOG.addHandler(STREAM_HANDLER)
+
+logging.basicConfig(handlers=[FILE_HANDLER, STREAM_HANDLER])
+logging.getLogger().setLevel(logging.WARNING)
 
 
 def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
@@ -121,13 +128,14 @@ class Webscraper(Scraper):
         return msg
 
     @property
-    def res(self) -> Union[None, requests.Response, List[requests.Response]]:
+    def res(self) -> Union[None, requests.Response, List[requests.Response], requests.exceptions.RequestException]:
         """The response object.
 
         Returns
         -------
-        Union[None, request.Response, List[requenst.Response]]
-            The response object.
+        Union[None, request.Response, List[requenst.Response], requests.exceptions.RequestException]
+            None if not yet set, the/all response object(s),
+            or the error thrown.
 
         """
         return self._res
@@ -160,21 +168,22 @@ class Webscraper(Scraper):
             If `url` is neither of type `str` nor of type `list`.
 
         """
-        if isinstance(url, str):
-            url = url.strip()
-            res = self._load_url(url)
-        elif isinstance(url, list):
-            url = [ur.strip() for ur in url]
-            res = self._load_urls(url)
+        # save the url to the data class
+        setattr(self, "_url", url)
+        if isinstance(self._url, str):
+            self._url = self._url.strip()
+            res = self._load_url(self._url)
+        elif isinstance(self._url, list):
+            self._url = [ur.strip() for ur in self._url]
+            res = self._load_urls(self._url)
         else:
             raise AssertionError(
                 f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}.")
-        # set the attributes
+        # set the attribute
         setattr(self, "_res", res)
-        setattr(self, "_url", url)
         self._loaded = True
 
-    def _load_url(self, url: str) -> Union[requests.Response, bool]:
+    def _load_url(self, url: str) -> Union[requests.Response, requests.exceptions.RequestException]:
         """Load a single url.
 
         Parameters
@@ -184,9 +193,9 @@ class Webscraper(Scraper):
 
         Returns
         -------
-        Union[requests.Response, bool]
+        Union[requests.Response, requests.exceptions.RequestException]
             The corresponding response object. If the request fails
-            for some reason, False is returned.
+            for some reason, the error itself is returned.
 
         """
         with self._sess:
@@ -194,16 +203,18 @@ class Webscraper(Scraper):
                 res = self._sess.get(
                     url, headers=self._headers, timeout=self._timeout)
                 # save json data if available
-                try:
-                    res.data = res.json()
-                except json.decoder.JSONDecodeError:
-                    pass
+                if res.ok:  # check if no bad response is returned
+                    try:
+                        res.data = res.json()
+                    except json.decoder.JSONDecodeError:
+                        pass
                 if self._verbose:
                     REQUESTS_LOG.debug("Total Time: %3f s",
                                        res.elapsed.total_seconds())
             except requests.exceptions.RequestException as e:
-                print(e)
-                res = False
+                REQUESTS_LOG.warning(
+                    f"Sending a GET request to {url} has failed!\nThe exception thrown is {e}")
+                res = e
         return res
 
     def _load_urls(self, urls: List[str]) -> List[requests.Response]:
@@ -230,14 +241,22 @@ class Webscraper(Scraper):
             responses = list(executor.map(self._load_url, urls, chunksize=8))
             # wait until all threads are finished
             executor.shutdown(wait=True)
-        # TODO: filters out Failed Responses and Response [400]
-        mask = list(itertools.compress(range(len(responses)), responses))
-        non_mask = list(set(range(mask[0], mask[-1])) - set(mask))
-        responses = [responses[i] for i in mask]
-        if self._verbose:
-            REQUESTS_LOG.warning(
-                f"Request for the following URLs failed: {[urls[i] for i in non_mask]}!")
-        return responses
+        # filter out Response >=[400] and exceptions
+        _res = []
+        _urls = []
+        for i, res in enumerate(responses):
+            if isinstance(res, requests.exceptions.RequestException):
+                REQUESTS_LOG.warning(
+                    f"Response for {urls[i]} failed!\nError Message: {res}")
+            else:
+                if res.ok:
+                    _res.append(res)
+                    _urls.append(urls[i])
+                else:
+                    REQUESTS_LOG.warning(
+                        f"Response for {urls[i]} failed!\nResponse status code: {res.status_code}.")
+        self._url = _urls
+        return _res
 
     def parse(self):
         """Parse a single or a list of response objects.
