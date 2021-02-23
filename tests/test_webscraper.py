@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 class TestWebScraper(unittest.TestCase):
 
     def setUp(self):
-        self.url = "http://httpbin.org/"
+        self.url = r"http://httpbin.org/"
         self.urls = [
             r"http://www.youtube.com",
             r"http://www.facebook.com",
@@ -69,6 +69,12 @@ class TestWebScraper(unittest.TestCase):
         self.webscraper.load(self.url)
         self.webscraper.parse()
         assert isinstance(self.webscraper.data, BeautifulSoup)
+
+    def test_error_handling(self):
+        status_codes = list(range(100, 600, 100))
+        urls = [self.url +
+                f"/status/{status_code}" for status_code in status_codes]
+        self.webscraper.load(urls)
 
 
 if __name__ == '__main__':
