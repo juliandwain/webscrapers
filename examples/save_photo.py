@@ -14,7 +14,10 @@ import scraper.webscraper as ws
 
 class PhotoSaver(ws.Webscraper):
     def __init__(self, parser: str, verbose: bool = False) -> None:
-        super().__init__(parser, verbose=verbose)
+        self.params = {
+            "stream": True,
+        }
+        super().__init__(parser, verbose=verbose, **self.params)
 
     def save(self, path: Union[str, os.PathLike]) -> None:
         """Save a downloaded image to a file.
@@ -36,6 +39,8 @@ class PhotoSaver(ws.Webscraper):
         [1] https://stackoverflow.com/questions/13137817/how-to-download-image-using-requests
 
         """
+        # TODO: determine the file type by the request
+        # TODO: error handling for path
         if isinstance(path, str):
             _path = pathlib.Path(path)
         else:
@@ -55,9 +60,20 @@ class PhotoSaver(ws.Webscraper):
 if __name__ == "__main__":
     parser = "html.parser"
     url = "https://api.corona-zahlen.org/map/districts"
-    path = os.path.join(os.path.abspath(""), "examples/figs/districts.png")
+    urls = [
+        r"http://httpbin.org/image",
+        r"http://httpbin.org/image/jpeg",
+        r"http://httpbin.org/image/png",
+        r"http://httpbin.org/image/svg",
+        r"http://httpbin.org/image/webp",
+    ]
+    path = os.path.join(os.path.abspath(""), "examples/figs/")
+    filename = "districts.png"
     print(path)
 
     photo_saver = PhotoSaver(parser, verbose=True)
     photo_saver.load(url)
+    photo_saver.save(os.path.join(path, filename))
+
+    photo_saver.load(urls)
     photo_saver.save(path)
