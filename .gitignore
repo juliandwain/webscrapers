@@ -20,7 +20,7 @@ __pypackages__/
 # test files
 covid.py
 test.py
-test_2.py
+test_*.py
 compilation_info.md
 
 # log files
