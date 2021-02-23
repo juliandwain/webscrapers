@@ -44,10 +44,12 @@ class PhotoSaver(ws.Webscraper):
             for i, res in enumerate(self.res):
                 __path = _path / f"picture-{i}.png"
                 with __path.open(mode="wb", encoding=res.encoding) as pic:
-                    pic.write(res.content)
+                    for chunk in res.iter_content(chunk_size=128):
+                        pic.write(chunk)
         else:
             with _path.open(mode="wb", encoding=self.res.encoding) as pic:
-                pic.write(self.res.content)
+                for chunk in self.res.iter_content(chunk_size=128):
+                    pic.write(chunk)
 
 
 if __name__ == "__main__":
