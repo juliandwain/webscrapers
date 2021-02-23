@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
-__doc__ = """This is another test module.
+__doc__ = """
+This is a simple example showing the possible speedup obtained by
+making requests in parallel threads instead of serializing them.
 """
 
 import time
 
 import scraper.webscraper as ws
+from tqdm import tqdm
 
 URL = "http://httpbin.org/"
 LIST_OF_URLS = [
@@ -36,31 +39,26 @@ LIST_OF_URLS = [
 ]
 PARSER = "html.parser"
 
-if __name__ == "__main__":
+webscraper = ws.Webscraper(PARSER, verbose=True)
 
-    webscraper = ws.Webscraper(PARSER, verbose=True)
+start = time.time()
+response = webscraper.load(URL)
+webscraper.parse()
+end = time.time()
+dur = end - start
+print(f"Response of 1 object took {dur:.2f}s.")
 
-    # start = time.time()
-    # response = webscraper.load(URL)
-    # obj = webscraper.parse(response)
-    # end = time.time()
-    # dur = end - start
-    # print(f"Response of 1 object took {dur:.2f}s.")
-#
-    # start = time.time()
-    # reponses = []
-    # for url in tqdm(LIST_OF_URLS):
-    #     reponses.append(webscraper.load(url))
-    # end = time.time()
-    # dur = end - start
-    # print(
-    #     f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in serial.")
+start = time.time()
+for url in tqdm(LIST_OF_URLS):
+    webscraper.load(url)
+end = time.time()
+dur = end - start
+print(
+    f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in serial.")
 
-    start = time.time()
-    webscraper.load(LIST_OF_URLS)
-    end = time.time()
-    dur = end - start
-    print(
-        f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in parallel.")
-    webscraper.parse()
-    print(webscraper)
+start = time.time()
+webscraper.load(LIST_OF_URLS)
+end = time.time()
+dur = end - start
+print(
+    f"Response of {len(LIST_OF_URLS)} objects took {dur:.2f}s in parallel.")
