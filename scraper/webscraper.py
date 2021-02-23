@@ -79,7 +79,7 @@ class Webscraper(Scraper):
     """The Webscraper class.
     """
 
-    def __init__(self, parser: str, verbose: bool = False) -> None:
+    def __init__(self, parser: str, verbose: bool = False, **kwargs: dict) -> None:
         """Init the class.
 
         Parameters
@@ -93,11 +93,18 @@ class Webscraper(Scraper):
         verbose : bool
             Determine whether the output should be written to the log file,
             by default False.
+        kwargs : dict
+            A dictionary with parameters passed to the GET request, see [1].
+
+        References
+        ----------
+        [1] https://2.python-requests.org/en/master/
 
         """
         super().__init__()
         self._parser = parser
         self._verbose = verbose
+        self._kwargs = kwargs
 
         self._max_threads = os.cpu_count()*2 - 4
         self._max_processes = os.cpu_count() - 2
@@ -116,7 +123,7 @@ class Webscraper(Scraper):
         # define a variable which checks if the url are loaded
         self._loaded = False
 
-    def __str__(self):
+    def __str__(self) -> str:
         if isinstance(self._url, list):
             msg = ""
             for url in self._url:
@@ -201,7 +208,11 @@ class Webscraper(Scraper):
         with self._sess:
             try:
                 res = self._sess.get(
-                    url, headers=self._headers, timeout=self._timeout)
+                    url,
+                    headers=self._headers,
+                    timeout=self._timeout,
+                    **self._kwargs
+                )
                 # save json data if available
                 if res.ok:  # check if no bad response is returned
                     try:
