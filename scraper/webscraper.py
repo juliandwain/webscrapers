@@ -183,16 +183,10 @@ class Webscraper(Scraper):
         """
         return self._data
 
-<<<<<<< HEAD
     def get(
-            self,
-            url: Union[str, List[str]]) -> None:
-=======
-    def load(
         self,
-        url: Union[str, List[str]],
+        url: Union[str, List[str]]
     ) -> None:
->>>>>>> 4b4caff1f12f9bf3027d858b5a492519f75b838d
         """Load a single or a list of urls.
 
         Parameters
@@ -319,7 +313,7 @@ class Webscraper(Scraper):
         """
         if not self._http_request["GET"]:
             raise AssertionError(
-                f"Expected {self.load} to be called before calling {self.parse}.")
+                f"Expected {self.get} to be called before calling {self.parse}.")
         if isinstance(self._res, list):
             obj = []
             for response in tqdm(self._res):
