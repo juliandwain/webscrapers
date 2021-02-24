@@ -39,8 +39,8 @@ class Scraper(abc.ABC):
         self._url = val
 
     @abc.abstractmethod
-    def load(self, url: Union[str, List[str]]):
-        """Abstract method for loading url content.
+    def get(self, url: Union[str, List[str]]):
+        """Abstract method for getting url content.
         """
 
     @abc.abstractmethod

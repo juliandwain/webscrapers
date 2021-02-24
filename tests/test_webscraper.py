@@ -45,28 +45,28 @@ class TestWebScraper(unittest.TestCase):
 
     def test_multiple_url(self):
         start = time.time()
-        self.webscraper.load(self.urls)
+        self.webscraper.get(self.urls)
         end = time.time()
         dur = end - start
         print(
             f"Response of {len(self.urls)} objects took {dur:.2f}s in parallel.")
-        assert self.webscraper._loaded
+        assert self.webscraper._http_request["GET"]
         assert isinstance(self.webscraper.url, list)
 
     def test_single_url(self):
-        self.webscraper.load(self.url)
+        self.webscraper.get(self.url)
         dur = self.webscraper.res.elapsed.total_seconds()
         print(f"Response of single object took {dur:.2f}s.")
-        assert self.webscraper._loaded
+        assert self.webscraper._http_request["GET"]
         assert isinstance(self.webscraper.url, str)
 
     def test_multiple_parse(self):
-        self.webscraper.load(self.urls)
+        self.webscraper.get(self.urls)
         self.webscraper.parse()
         assert isinstance(self.webscraper.data, list)
 
     def test_single_parse(self):
-        self.webscraper.load(self.url)
+        self.webscraper.get(self.url)
         self.webscraper.parse()
         assert isinstance(self.webscraper.data, BeautifulSoup)
 
@@ -74,7 +74,7 @@ class TestWebScraper(unittest.TestCase):
         status_codes = list(range(100, 600, 100))
         urls = [self.url +
                 f"/status/{status_code}" for status_code in status_codes]
-        self.webscraper.load(urls)
+        self.webscraper.get(urls)
 
 
 if __name__ == '__main__':

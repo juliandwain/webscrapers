@@ -62,7 +62,7 @@ class Webdriver(Scraper):
         self._timeout = 10
 
     def __enter__(self) -> None:
-        self.load()
+        self.get()
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
         """Exit the context manager and ensure that the connection is closed.
@@ -194,7 +194,7 @@ class Webdriver(Scraper):
         )
         return obj
 
-    def load(self) -> None:
+    def get(self) -> None:
         """Load the given url.
 
         Notes
