@@ -14,10 +14,11 @@ import scraper.webscraper as ws
 
 class PhotoSaver(ws.Webscraper):
     def __init__(self, parser: str, verbose: bool = False) -> None:
-        self.params = {
+        self._params = {
             "stream": True,
         }
-        super().__init__(parser, verbose=verbose, get_params=self.params)
+        self._chunk_size = 256
+        super().__init__(parser, verbose=verbose, get_params=self._params)
 
     def save(self, path: Union[str, os.PathLike]) -> None:
         """Save a downloaded image to a file.
@@ -47,33 +48,33 @@ class PhotoSaver(ws.Webscraper):
             _path = path
         if isinstance(self.res, list):
             for i, res in enumerate(self.res):
-                __path = _path / f"picture-{i}.png"
+                content_type = res.headers["Content-Type"].split("/")[-1]
+                __path = _path / f"picture-{i}.{content_type}"
                 with __path.open(mode="wb", encoding=res.encoding) as pic:
-                    for chunk in res.iter_content(chunk_size=128):
+                    for chunk in res.iter_content(chunk_size=self._chunk_size):
                         pic.write(chunk)
         else:
             with _path.open(mode="wb", encoding=self.res.encoding) as pic:
-                for chunk in self.res.iter_content(chunk_size=128):
+                for chunk in self.res.iter_content(chunk_size=self._chunk_size):
                     pic.write(chunk)
 
 
 if __name__ == "__main__":
     parser = "html.parser"
-    url = "https://api.corona-zahlen.org/map/districts"
+    url = "http://httpbin.org/image/png"
     urls = [
-        r"http://httpbin.org/image",
         r"http://httpbin.org/image/jpeg",
         r"http://httpbin.org/image/png",
         r"http://httpbin.org/image/svg",
         r"http://httpbin.org/image/webp",
     ]
     path = os.path.join(os.path.abspath(""), "examples/figs/")
-    filename = "districts.png"
+    filename = "image.png"
     print(path)
 
     photo_saver = PhotoSaver(parser, verbose=True)
-    photo_saver.load(url)
+    photo_saver.get(url)
     photo_saver.save(os.path.join(path, filename))
 
-    photo_saver.load(urls)
+    photo_saver.get(urls)
     photo_saver.save(path)
