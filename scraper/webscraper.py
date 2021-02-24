@@ -8,7 +8,7 @@ import json
 import logging
 import os
 from concurrent.futures import ThreadPoolExecutor  # ,ProcessPoolExecutor
-from typing import List, Union
+from typing import List, Union, Optional
 
 import requests
 from bs4 import BeautifulSoup
@@ -87,7 +87,12 @@ class Webscraper(Scraper):
     """The Webscraper class.
     """
 
-    def __init__(self, parser: str, verbose: bool = False, **kwargs: dict) -> None:
+    def __init__(
+        self,
+        parser: str,
+        verbose: bool = False,
+        get_params: Optional[dict] = None,
+    ) -> None:
         """Init the class.
 
         Parameters
@@ -101,8 +106,9 @@ class Webscraper(Scraper):
         verbose : bool
             Determine whether the output should be written to the log file,
             by default False.
-        kwargs : dict
-            A dictionary with parameters passed to the GET request, see [1].
+        get_params : Optional[dict]
+            A dictionary containing parameters for the GET request,
+            by default None. See [1].
 
         References
         ----------
@@ -112,7 +118,10 @@ class Webscraper(Scraper):
         super().__init__()
         self._parser = parser
         self._verbose = verbose
-        self._kwargs = kwargs
+        if get_params:
+            self._get_params = get_params
+        else:
+            self._get_params = {}
 
         self._max_threads = os.cpu_count()*2 - 4
         self._max_processes = os.cpu_count() - 2
@@ -174,9 +183,16 @@ class Webscraper(Scraper):
         """
         return self._data
 
+<<<<<<< HEAD
     def get(
             self,
             url: Union[str, List[str]]) -> None:
+=======
+    def load(
+        self,
+        url: Union[str, List[str]],
+    ) -> None:
+>>>>>>> 4b4caff1f12f9bf3027d858b5a492519f75b838d
         """Load a single or a list of urls.
 
         Parameters
@@ -205,7 +221,10 @@ class Webscraper(Scraper):
         setattr(self, "_res", res)
         self._http_request["GET"] = True
 
-    def _load_url(self, url: str) -> Union[requests.Response, requests.exceptions.RequestException]:
+    def _load_url(
+        self,
+        url: str,
+    ) -> Union[requests.Response, requests.exceptions.RequestException]:
         """Load a single url.
 
         Parameters
@@ -226,7 +245,7 @@ class Webscraper(Scraper):
                     url,
                     headers=self._headers,
                     timeout=self._timeout,
-                    **self._kwargs
+                    **self._get_params,
                 )
                 if not res.ok:  # check if no bad response is returned
                     REQUESTS_LOG.warning(
@@ -240,7 +259,10 @@ class Webscraper(Scraper):
                 res = e
         return res
 
-    def _load_urls(self, urls: List[str]) -> List[requests.Response]:
+    def _load_urls(
+        self,
+        urls: List[str],
+    ) -> List[requests.Response]:
         """Load a list of urls to response objects.
 
         Parameters

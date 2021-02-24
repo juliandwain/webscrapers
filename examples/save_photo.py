@@ -17,7 +17,7 @@ class PhotoSaver(ws.Webscraper):
         self.params = {
             "stream": True,
         }
-        super().__init__(parser, verbose=verbose, **self.params)
+        super().__init__(parser, verbose=verbose, get_params=self.params)
 
     def save(self, path: Union[str, os.PathLike]) -> None:
         """Save a downloaded image to a file.
