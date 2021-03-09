@@ -144,7 +144,8 @@ class Webscraper(Scraper):
             "GET": False,
             "PATCH": False,
             "POST": False,
-            "PUT": False
+            "PUT": False,
+            "OPTIONS": False,
         }
 
     def __str__(self) -> str:
@@ -164,7 +165,8 @@ class Webscraper(Scraper):
 
         Returns
         -------
-        Union[None, request.Response, List[requenst.Response], requests.exceptions.RequestException]
+        Union[None, request.Response, List[requenst.Response],
+            requests.exceptions.RequestException]
             None if not yet set, the/all response object(s),
             or the error thrown.
 
@@ -187,7 +189,7 @@ class Webscraper(Scraper):
         self,
         url: Union[str, List[str]]
     ) -> None:
-        """Load a single or a list of urls.
+        """Make a GET request to a single or multiple urls.
 
         Parameters
         ----------
@@ -201,7 +203,7 @@ class Webscraper(Scraper):
 
         """
         # save the url to the data class
-        setattr(self, "_url", url)
+        self._url = url
         if isinstance(self._url, str):
             self._url = self._url.strip()
             res = self._load_url(self._url)
@@ -233,9 +235,9 @@ class Webscraper(Scraper):
             for some reason, the error itself is returned.
 
         """
-        with self._sess:
+        with self._sess as sess:
             try:
-                res = self._sess.get(
+                res = sess.get(
                     url,
                     headers=self._headers,
                     timeout=self._timeout,
@@ -295,6 +297,127 @@ class Webscraper(Scraper):
                     continue
         self._url = _urls
         return _res
+
+    def put(
+        self,
+        url: str
+    ) -> None:
+        """Make a PUT request to a single url.
+
+        Parameters
+        ----------
+        url : str
+            The url to which a PUT request should be made.
+
+        """
+        self._url = url
+        with self._sess as sess:
+            res = sess.put(url)
+        # set the attribute
+        setattr(self, "_res", res)
+        self._http_request["PUT"] = True
+
+    def delete(
+        self,
+        url: str
+    ) -> None:
+        """Make a DELETE request to a single url.
+
+        Parameters
+        ----------
+        url : str
+            The url to which a DELETE request should be made.
+
+        """
+        self._url = url
+        with self._sess as sess:
+            res = sess.delete(url)
+        # set the attribute
+        setattr(self, "_res", res)
+        self._http_request["DELETE"] = True
+
+    def head(
+        self,
+        url: str
+    ) -> None:
+        """Make a HEAD request to a single url.
+
+        Parameters
+        ----------
+        url : str
+            The url to which a HEAD request should be made.
+
+        """
+        self._url = url
+        with self._sess as sess:
+            res = sess.head(url)
+        # set the attribute
+        setattr(self, "_res", res)
+        self._http_request["HEAD"] = True
+
+    def options(
+        self,
+        url: str
+    ) -> None:
+        """Make an OPTIONS request to a single url.
+
+        Parameters
+        ----------
+        url : str
+            The url to which an OPTIONS request should be made.
+
+        """
+        self._url = url
+        with self._sess as sess:
+            res = sess.options(url)
+        # set the attribute
+        setattr(self, "_res", res)
+        self._http_request["OPTIONS"] = True
+
+    def post(
+        self,
+        url: str,
+        payload: dict = {},
+    ) -> None:
+        """Make a POST request to a single url.
+
+        Parameters
+        ----------
+        url : str
+            The url to which a POST request should be made.
+        payload : dict, optional
+            The data which should be delivered with the post request,
+            by default {}.
+
+        """
+        self._url = url
+        with self._sess as sess:
+            res = sess.post(
+                url,
+                data=payload
+            )
+        # set the attribute
+        setattr(self, "_res", res)
+        self._http_request["POST"] = True
+
+    def patch(
+        self,
+        url: str,
+    ) -> None:
+        """Make a PATCH request to a single url.
+
+        Parameters
+        ----------
+        url : str
+            The url to which a PATCH request should be made.
+
+        """
+        self._url = url
+        with self._sess as sess:
+            res = sess.patch(url)
+        # set the attribute
+        setattr(self, "_res", res)
+        self._http_request["PATCH"] = True
 
     def parse(self):
         """Parse a single or a list of response objects.
