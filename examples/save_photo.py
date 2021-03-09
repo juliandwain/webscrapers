@@ -40,13 +40,15 @@ class PhotoSaver(ws.Webscraper):
         [1] https://stackoverflow.com/questions/13137817/how-to-download-image-using-requests
 
         """
-        # TODO: determine the file type by the request
         # TODO: error handling for path
         if isinstance(path, str):
             _path = pathlib.Path(path)
         else:
             _path = path
         if isinstance(self.res, list):
+            if _path.parts[-2] == ".":
+                raise AssertionError(
+                    f"When saving multiple photos at once, there can only be a folder given, not a single filename!")
             for i, res in enumerate(self.res):
                 content_type = res.headers["Content-Type"].split("/")[-1]
                 __path = _path / f"picture-{i}.{content_type}"
