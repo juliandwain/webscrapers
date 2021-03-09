@@ -76,6 +76,26 @@ class TestWebScraper(unittest.TestCase):
                 f"/status/{status_code}" for status_code in status_codes]
         self.webscraper.get(urls)
 
+    def test_http_methods(self):
+        methods = [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST",
+            "PUT",
+        ]
+        functions = [
+            self.webscraper.delete,
+            self.webscraper.get,
+            self.webscraper.patch,
+            self.webscraper.post,
+            self.webscraper.put,
+        ]
+        for function, method in zip(functions, methods):
+            url = self.url + method.lower()
+            function(url)
+            assert self.webscraper._http_request[method]
+
 
 if __name__ == '__main__':
     unittest.main()
