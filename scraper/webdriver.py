@@ -6,8 +6,8 @@ The selenium based websdriver is useful for navigating through
 webpages.
 """
 
-import pathlib
-from typing import Optional
+import os
+from typing import Optional, Union
 
 from selenium import webdriver
 from selenium.common.exceptions import (ElementClickInterceptedException,
@@ -15,21 +15,23 @@ from selenium.common.exceptions import (ElementClickInterceptedException,
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
-from .wait import element_wait
 from ._base import Scraper
+from .wait import element_wait
 
 
 class Webdriver(Scraper):
     """The `Webdriver` class.
     """
 
-    def __init__(self, url: str, headless: bool = True) -> None:
+    def __init__(self, url: str, exe_path: Union[os.PathLike, str], headless: bool = True) -> None:
         """Init the class.
 
         Parameters
         ----------
         url : str
             The url which should be loaded.
+        exe_path : Union[PathLike, str]
+            The path to the executable browser.
         headless : bool, optional
             Determine if the browser should be executed
             without opening a window, by default True.
@@ -37,14 +39,14 @@ class Webdriver(Scraper):
         """
         super().__init__()
         # define the path to the driver
-        self._path = pathlib.Path("./scraper/drivers/geckodriver.exe")
+        self._path = exe_path
         # set some options using the built-in Options class
         options = Options()
         options.headless = headless
         # define the engine, i.e. the browser to be used
         self._engine = webdriver.Firefox(
             options=options, executable_path=self._path)
-        self.url = url
+        self._url = url
         # define a strategy dictionary
         self._strategy_dic = {
             "id": By.ID,
@@ -60,7 +62,7 @@ class Webdriver(Scraper):
         self._timeout = 10
 
     def __enter__(self) -> None:
-        self.load()
+        self.get()
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
         """Exit the context manager and ensure that the connection is closed.
@@ -115,7 +117,7 @@ class Webdriver(Scraper):
                 iter(self._engine.window_handles), self._engine.window_handles[0])
             self._engine.switch_to.window(window_after)
 
-    def parse(  # pylint: disable=arguments-differ
+    def parse(
             self,
             by_strat: Optional[str],
             **kwargs: dict
@@ -175,7 +177,7 @@ class Webdriver(Scraper):
 
         References
         ----------
-        .. [1] https://selenium-python.readthedocs.io/locating-elements.html
+        [1] https://selenium-python.readthedocs.io/locating-elements.html
 
         """
         by_strat = self._strategy_dic.get(by_strat, By.CSS_SELECTOR)
@@ -192,7 +194,7 @@ class Webdriver(Scraper):
         )
         return obj
 
-    def load(self) -> None:  # pylint: disable=arguments-differ
+    def get(self) -> None:
         """Load the given url.
 
         Notes
