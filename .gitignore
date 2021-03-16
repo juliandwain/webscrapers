@@ -23,6 +23,9 @@ test.py
 test_*.py
 compilation_info.md
 
+# ignore jupyter notebook files
+*.ipynb
+
 # log files
 *.log
 # log directory
