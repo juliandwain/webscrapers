@@ -5,7 +5,7 @@ __doc__ = """This module implements some scrapers.
 
 from pathlib import Path
 
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 # define the log dir which is created in the same folder this projcet is ran
 LOG_DIR = Path("./log")
