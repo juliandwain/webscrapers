@@ -13,7 +13,6 @@ import requests
 from bs4 import BeautifulSoup
 from bs4.dammit import EncodingDetector
 from fake_useragent import UserAgent
-from tqdm import tqdm
 
 from . import LOG_DIR
 from ._base import DATA_OBJECT, Scraper
@@ -441,7 +440,7 @@ class Webscraper(Scraper):
                 f"Expected {self.get} to be called before calling {self.parse}.")
         if isinstance(self._res, list):
             obj = []
-            for response in tqdm(self._res):
+            for response in self._res:
                 obj.append(self._parse_response(response))
             # with ProcessPoolExecutor(max_workers=self._max_processes) as executor:
             #     obj = list(executor.map(self._parse_response, res))
