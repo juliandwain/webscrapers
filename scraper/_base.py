@@ -2,9 +2,12 @@
 
 import abc
 from typing import List, Union
+from bs4 import BeautifulSoup
 
 __doc__ = """The base class.
 """
+
+DATA_OBJECT = Union[None, BeautifulSoup, List[BeautifulSoup]]
 
 
 class Scraper(abc.ABC):
