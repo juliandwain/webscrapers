@@ -4,19 +4,19 @@ __doc__ = """This module implements the webscraper.
 """
 
 import http.client
-import json
 import logging
 import os
 from concurrent.futures import ThreadPoolExecutor  # ,ProcessPoolExecutor
-from typing import List, Union, Optional
+from typing import List, Optional, Union
 
 import requests
 from bs4 import BeautifulSoup
+from bs4.dammit import EncodingDetector
 from fake_useragent import UserAgent
 from tqdm import tqdm
 
 from . import LOG_DIR
-from ._base import Scraper
+from ._base import DATA_OBJECT, Scraper
 
 # set up the logging configuration
 http.client.HTTPConnection.debuglevel = 0
@@ -51,6 +51,9 @@ STATUS_CODES = {
     400: "Client Errors",
     500: "Server Errors",
 }
+
+RESPONSE_OBJECT = Union[None, requests.Response,
+                        List[requests.Response], requests.exceptions.RequestException]
 
 
 def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
@@ -160,13 +163,12 @@ class Webscraper(Scraper):
         return msg
 
     @property
-    def res(self) -> Union[None, requests.Response, List[requests.Response], requests.exceptions.RequestException]:
+    def res(self) -> RESPONSE_OBJECT:
         """The response object.
 
         Returns
         -------
-        Union[None, request.Response, List[requenst.Response],
-            requests.exceptions.RequestException]
+        RESPONSE_OBJECT
             None if not yet set, the/all response object(s),
             or the error thrown.
 
@@ -174,12 +176,12 @@ class Webscraper(Scraper):
         return self._res
 
     @property
-    def data(self) -> Union[None, BeautifulSoup, List[BeautifulSoup]]:
+    def data(self) -> DATA_OBJECT:
         """The data object.
 
         Returns
         -------
-        Union[None, BeautifulSoup, List[BeautifulSoup]]
+        DATA_OBJECT
             The data object.
 
         """
@@ -187,7 +189,7 @@ class Webscraper(Scraper):
 
     def get(
         self,
-        url: Union[str, List[str]]
+        url: Union[str, List[str]],
     ) -> None:
         """Make a GET request to a single or multiple urls.
 
@@ -419,7 +421,7 @@ class Webscraper(Scraper):
         setattr(self, "_res", res)
         self._http_request["PATCH"] = True
 
-    def parse(self):
+    def parse(self) -> None:
         """Parse a single or a list of response objects.
 
         Raises
@@ -447,7 +449,10 @@ class Webscraper(Scraper):
             obj = self._parse_response(self._res)
         setattr(self, "_data", obj)
 
-    def _parse_response(self, res: requests.Response) -> BeautifulSoup:
+    def _parse_response(
+        self,
+        res: requests.Response
+    ) -> BeautifulSoup:
         """Parse a single response object.
 
         Parameters
@@ -461,6 +466,11 @@ class Webscraper(Scraper):
             The response as Beautifulsoup object.
 
         """
+        http_encoding = res.encoding if "charset" in res.headers.get(
+            "content-type", "").lower() else None
+        html_encoding = EncodingDetector.find_declared_encoding(
+            res.content, is_html=True)
+        encoding = html_encoding or http_encoding
         obj = BeautifulSoup(res.content, self._parser,
-                            from_encoding=res.encoding)
+                            from_encoding=encoding)
         return obj
