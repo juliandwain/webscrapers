@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor  # ,ProcessPoolExecutor
 from typing import List, Optional, Union
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, SoupStrainer
 from bs4.dammit import EncodingDetector
 from fake_useragent import UserAgent
 
@@ -420,8 +420,25 @@ class Webscraper(Scraper):
         setattr(self, "_res", res)
         self._http_request["PATCH"] = True
 
-    def parse(self) -> None:
+    def parse(
+        self,
+        name: Optional[str] = None,
+        **kwargs: dict,
+    ) -> None:
         """Parse a single or a list of response objects.
+
+        Parameters
+        ----------
+        name : Optional[str]
+            Parse only a part of the document specified by a name
+            (see the documentation for `_parse_response()`),
+            by default None.
+
+        Other Parameters
+        ----------------
+        Parameters passed into the `SoupStrainer` object, the same as for
+        the find_all method of BS4, see the documentation for 
+        `_parse_response()`.
 
         Raises
         ------
@@ -441,16 +458,18 @@ class Webscraper(Scraper):
         if isinstance(self._res, list):
             obj = []
             for response in self._res:
-                obj.append(self._parse_response(response))
+                obj.append(self._parse_response(response, name, **kwargs))
             # with ProcessPoolExecutor(max_workers=self._max_processes) as executor:
             #     obj = list(executor.map(self._parse_response, res))
         else:
-            obj = self._parse_response(self._res)
+            obj = self._parse_response(self._res, name, **kwargs)
         setattr(self, "_data", obj)
 
     def _parse_response(
         self,
-        res: requests.Response
+        res: requests.Response,
+        name: Optional[str],
+        **kwargs: dict,
     ) -> BeautifulSoup:
         """Parse a single response object.
 
@@ -458,18 +477,43 @@ class Webscraper(Scraper):
         ----------
         res : requests.Response
             The response to be parsed.
+        name : Optional[str]
+            Parse only a part of the document specified by a `name`
+            (see [1]), by default `None`.
+
+        Other Parameters
+        ----------------
+        Parameters passed into the `SoupStrainer` object, the same as for
+        the `find_all` method of BS4, see [2].
 
         Returns
         -------
         BeautifulSoup
             The response as Beautifulsoup object.
 
+        Notes
+        -----
+        This function takes in a string as name which is wrapped
+        into a `SoupStrainer` object.
+
+        References
+        ----------
+        [1] https://www.crummy.com/software/BeautifulSoup/bs4/doc/#soupstrainer
+        [2] https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all
+
         """
+        # deterime the correct encoding
         http_encoding = res.encoding if "charset" in res.headers.get(
             "content-type", "").lower() else None
         html_encoding = EncodingDetector.find_declared_encoding(
             res.content, is_html=True)
         encoding = html_encoding or http_encoding
-        obj = BeautifulSoup(res.content, self._parser,
-                            from_encoding=encoding)
+        # parse the document
+        parse_only = SoupStrainer(name, **kwargs)
+        obj = BeautifulSoup(
+            res.content,
+            self._parser,
+            from_encoding=encoding,
+            parse_only=parse_only,
+        )
         return obj
