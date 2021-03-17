@@ -57,7 +57,7 @@ class Parser(Webscraper):
     def table(
         self,
         element: DATA_OBJECT,
-    ) -> Dict[str, list]:
+    ) -> Dict[str, List[pd.DataFrame]]:
         """Get all <table></table> elements of the given url(s) as
         DataFrame(s).
 
@@ -72,7 +72,7 @@ class Parser(Webscraper):
 
         Returns
         -------
-        Dict[str, list]
+        Dict[str, List[pd.DataFrame]]
             Return a dictionary containing the url as key and the
             corresponding table elements as list.
 
@@ -94,10 +94,15 @@ class Parser(Webscraper):
             self.parse(name=tag)
             element = self._data
         if isinstance(element, list):
-            for idx, ele in enumerate(element):
-                tables = ele(tag)  # find all table elements
-                dfs[self._url[idx]] = _get_tables(
-                    tables, ele.original_encoding)
+            if len(element) == 1:
+                tables = element[0](tag)  # find all table elements
+                dfs[self._url] = _get_tables(
+                    tables, element[0].original_encoding)
+            else:
+                for idx, ele in enumerate(element):
+                    tables = ele(tag)  # find all table elements
+                    dfs[self._url[idx]] = _get_tables(
+                        tables, ele.original_encoding)
         elif isinstance(element, BeautifulSoup):
             tables = element(tag)  # find all table elements
             dfs[self._url] = _get_tables(tables, element.original_encoding)
