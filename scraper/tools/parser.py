@@ -6,8 +6,9 @@ __doc__ = """
 from typing import Dict, List
 
 import pandas as pd
-from ..webscraper import Webscraper, DATA_OBJECT
-from bs4 import BeautifulSoup, SoupStrainer
+from bs4 import BeautifulSoup
+
+from ..webscraper import DATA_OBJECT, Webscraper
 
 __all__ = [
     "Parser",
@@ -53,7 +54,7 @@ class Parser(Webscraper):
     ) -> None:
         super().__init__(parser, verbose=verbose)
 
-    def tables(
+    def table(
         self,
         element: DATA_OBJECT,
     ) -> Dict[str, list]:
@@ -75,23 +76,30 @@ class Parser(Webscraper):
             Return a dictionary containing the url as key and the
             corresponding table elements as list.
 
+        Notes
+        -----
+        If no `element` is given to be searched, then the url(s) is(are)
+        searched for only table elements.
+
         Raises
         ------
         AssertionError
             If element is not of type list or Beautifulsoup.
 
         """
-        tag = SoupStrainer("table")
+        tag = "table"
         dfs = {}
         if not element:
+            # parse the document only for tables
+            self.parse(name=tag)
             element = self._data
         if isinstance(element, list):
             for idx, ele in enumerate(element):
-                tables = ele(tag)
+                tables = ele(tag)  # find all table elements
                 dfs[self._url[idx]] = _get_tables(
                     tables, ele.original_encoding)
         elif isinstance(element, BeautifulSoup):
-            tables = element(tag)
+            tables = element(tag)  # find all table elements
             dfs[self._url] = _get_tables(tables, element.original_encoding)
         else:
             raise AssertionError(
