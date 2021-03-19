@@ -186,6 +186,18 @@ class Webscraper(Scraper):
         """
         return self._data
 
+    @data.setter
+    def data(self, val: DATA_OBJECT) -> None:
+        """Set a new data object.
+
+        Parameters
+        ----------
+        val : DATA_OBJECT
+            The new value for data.
+
+        """
+        self._data = val
+
     def get(
         self,
         url: Union[str, List[str]],
