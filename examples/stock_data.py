@@ -40,7 +40,8 @@ parser.parse()  # parse the full html element
 # TODO: This is unintuitive, only one way of calling this
 html_ele = []
 for html in parser.data:
-    html_ele.append(html("div", attrs={"class": "table-responsive relative"}))
+    html_ele.append(
+        html.find("div", attrs={"class": "table-responsive relative"}))
 # pass the html elements to the table method to extract the table
 dfs_1 = parser.table(element=html_ele)
 dax_data_1 = dfs_1[urls[0]][0]
