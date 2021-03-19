@@ -6,7 +6,7 @@ __doc__ = """
 from typing import Callable, Dict, List
 
 import pandas as pd
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 from ..webscraper import DATA_OBJECT, Webscraper
 
@@ -45,7 +45,7 @@ def _get_href(
     a: list,
     url: str
 ) -> List[str]:
-    """Get href from <a><\a> elements as list.
+    """Get href from <a></a> elements as list.
 
     Parameters
     ----------
@@ -67,14 +67,12 @@ def _get_href(
     """
     href = []
     for _a in a:
-        _href = _a.get("href")
-        try:
-            if "https" in _href:
-                href.append(_href)
-            else:
-                href.append(url + _href)
-        except TypeError:
-            continue
+        # if no href attribute is given in the tag, the initial url is returned
+        _href = _a.get("href", url)
+        if "https" in _href:
+            href.append(_href)
+        else:
+            href.append(url + _href)
     return href
 
 
@@ -139,7 +137,9 @@ class Parser(Webscraper):
                 data[self._url] = fun(html_ele, *args)
             else:
                 for idx, ele in enumerate(element):
-                    html_ele = ele(tag)
+                    # catch if there is a bs4 Tag or ResultSet returned
+                    html_ele = ele(tag) if isinstance(
+                        ele, Tag) else ele[0](tag)
                     data[self._url[idx]] = fun(html_ele, *args)
         elif isinstance(element, BeautifulSoup):
             html_ele = element(tag)
@@ -153,7 +153,7 @@ class Parser(Webscraper):
         self,
         element: DATA_OBJECT
     ) -> Dict[str, List[str]]:
-        """Get all href of <a><\a> elements of the given url(s).
+        """Get all href of <a><aa> elements of the given url(s).
 
         See the documentation for ``self._scrape()`` for a documentation oif
         additional parameters.
