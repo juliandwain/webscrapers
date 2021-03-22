@@ -153,7 +153,7 @@ class Parser(Webscraper):
         self,
         element: DATA_OBJECT
     ) -> Dict[str, List[str]]:
-        """Get all href of <a><aa> elements of the given url(s).
+        """Get all href of <a></a> elements of the given url(s).
 
         See the documentation for ``self._scrape()`` for a documentation oif
         additional parameters.
