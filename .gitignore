@@ -20,7 +20,7 @@ __pypackages__/
 # test files
 covid.py
 test.py
-test_*.py
+test*.py
 compilation_info.md
 
 # ignore jupyter notebook files
