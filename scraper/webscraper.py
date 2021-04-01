@@ -327,7 +327,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.put(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["PUT"] = True
 
     def delete(
@@ -346,7 +346,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.delete(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["DELETE"] = True
 
     def head(
@@ -365,7 +365,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.head(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["HEAD"] = True
 
     def options(
@@ -384,7 +384,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.options(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["OPTIONS"] = True
 
     def post(
@@ -410,7 +410,7 @@ class Webscraper(Scraper):
                 data=payload
             )
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["POST"] = True
 
     def patch(
@@ -429,7 +429,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.patch(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["PATCH"] = True
 
     def parse(
