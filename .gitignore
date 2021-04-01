@@ -36,3 +36,6 @@ docs/_build/
 
 # drivers
 drivers/
+
+# environment files
+.env
