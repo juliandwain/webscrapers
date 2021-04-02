@@ -12,9 +12,11 @@ from typing import Optional, Union
 from selenium import webdriver
 from selenium.common.exceptions import (ElementClickInterceptedException,
                                         ElementNotInteractableException)
+# from selenium.webdriver.common import desired_capabilities
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
+from . import LOG_DIR
 from ._base import Scraper
 from .wait import element_wait
 
@@ -23,15 +25,21 @@ class Webdriver(Scraper):
     """The `Webdriver` class.
     """
 
-    def __init__(self, url: str, exe_path: Union[os.PathLike, str], headless: bool = True) -> None:
+    def __init__(
+        self,
+        url: str,
+        exe_path: Union[os.PathLike, str, None],
+        headless: bool = True
+    ) -> None:
         """Init the class.
 
         Parameters
         ----------
         url : str
             The url which should be loaded.
-        exe_path : Union[PathLike, str]
-            The path to the executable browser.
+        exe_path : Union[PathLike, str, None]
+            The path to the executable browser. If None, then the executable
+            is searched in the PATH environment variable.
         headless : bool, optional
             Determine if the browser should be executed
             without opening a window, by default True.
@@ -39,13 +47,17 @@ class Webdriver(Scraper):
         """
         super().__init__()
         # define the path to the driver
-        self._path = exe_path
+        self._path = exe_path if exe_path is not None else "geckodriver"
         # set some options using the built-in Options class
         options = Options()
         options.headless = headless
         # define the engine, i.e. the browser to be used
         self._engine = webdriver.Firefox(
-            options=options, executable_path=self._path)
+            options=options,
+            executable_path=self._path,
+            service_log_path=LOG_DIR / "geckodriver.log",
+            # desired_capabilities=options.default_capabilites,
+        )
         self._url = url
         # define a strategy dictionary
         self._strategy_dic = {
@@ -58,8 +70,6 @@ class Webdriver(Scraper):
             "class_name": By.CLASS_NAME,
             "css_selector": By.CSS_SELECTOR,
         }
-        # define a timeout
-        self._timeout = 10
 
     def __enter__(self) -> None:
         self.get()
@@ -90,6 +100,18 @@ class Webdriver(Scraper):
 
         """
         return self._engine
+
+    def get(self) -> None:
+        """Load the given url.
+
+        Notes
+        -----
+        This method has to be called before making any other operations
+        on the webpage, otherwise the url will not be
+        loaded into to driver object.
+
+        """
+        self._engine.get(self._url)
 
     def click_hyperlink(self, hyperlink) -> None:
         """Click a hyperlink object.
@@ -131,6 +153,7 @@ class Webdriver(Scraper):
             Determine a by-strategy by which the given element
             should be searched for value.
             Can be one of the following:
+
             * "id"
             * "xpath"
             * "link_text"
@@ -193,15 +216,3 @@ class Webdriver(Scraper):
             condition_type=condition_type
         )
         return obj
-
-    def get(self) -> None:
-        """Load the given url.
-
-        Notes
-        -----
-        This method has to be called before making any other operations
-        on the webpage, otherwise the url will not be
-        loaded into to driver object.
-
-        """
-        self._engine.get(self._url)
