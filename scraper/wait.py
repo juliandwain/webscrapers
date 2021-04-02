@@ -3,11 +3,12 @@
 __doc__ = """This module implements the wait.
 """
 
+from typing import List
+
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
 
 CONDITION_DIC = {
     "presence": EC.presence_of_element_located,
@@ -26,7 +27,7 @@ def element_wait(
         by_strat: str,
         val: str,
         condition_type: str
-) -> webdriver.firefox.webelement.FirefoxWebElement:
+) -> List[webdriver.firefox.webelement.FirefoxWebElement]:
     """Tell a selenium webelement to wait for `time` seconds
     until the val in element is located.
 
@@ -56,7 +57,7 @@ def element_wait(
 
     Returns
     -------
-    list
+    List[webdriver.firefox.webelement.FirefoxWebElement]
         A list containing the element(s) which was/were found,
         if no element was found, either None or an empty list is returned,
         depending on the condition chosen.
