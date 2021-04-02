@@ -133,7 +133,6 @@ class Webscraper(Scraper):
         self._sess = requests.Session()
         if self._verbose:
             self._sess.hooks["response"].append(callback)
-        self._timeout = 15
 
         # initialize the response and data attributes
         self._res = None
