@@ -4,13 +4,16 @@ __doc__ = """This module servers as a test file.
 """
 
 import scraper.webdriver as wd
+from pathlib import Path
+
+EXE_PATH = Path("./drivers/debian/geckodriver")
 
 URL = "https://www.investing.com/"
 
 BY = "css_selector"
 IDX = None
 
-driver = wd.Webdriver(URL, headless=False)
+driver = wd.Webdriver(URL, EXE_PATH, headless=True)
 
 with driver:
     # get the full html
