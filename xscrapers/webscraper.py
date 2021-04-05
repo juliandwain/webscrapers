@@ -473,7 +473,7 @@ class Webscraper(Scraper):
             #     obj = list(executor.map(self._parse_response, res))
         else:
             obj = self._parse_response(self._res, name, **kwargs)
-        setattr(self, "_data", obj)
+        self.__setattr__("_data", obj)
 
     def _parse_response(
         self,
