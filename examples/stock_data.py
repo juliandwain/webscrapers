@@ -21,7 +21,7 @@ and speed, but this requires the user to manually filter for the desired table.
 
 """
 
-import scraper.tools as tools
+import xscrapers.tools as tools
 
 # define the parser object
 parser = tools.Parser(parser="html.parser", verbose=True)

@@ -9,7 +9,7 @@ import os
 import pathlib
 from typing import Union
 
-import scraper.webscraper as ws
+import xscrapers.webscraper as ws
 
 
 class PhotoSaver(ws.Webscraper):

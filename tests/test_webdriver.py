@@ -3,7 +3,7 @@
 import unittest
 from pathlib import Path
 
-import scraper.webdriver as wd
+import xscrapers.webdriver as wd
 
 
 class TestWebDriver(unittest.TestCase):

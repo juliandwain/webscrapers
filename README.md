@@ -6,7 +6,7 @@ A base use case can be to load some pages to [Beautifulsoup Elements](https://ww
 This package allows to load the URLs concurrently using multiple threads, which allows to safe an enormous amount of time.
 
 ```python
-import scraper.webscraper as ws
+import xscrapers.webscraper as ws
 
 URLS = [
     "https://www.google.com/",

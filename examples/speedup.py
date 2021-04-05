@@ -7,7 +7,7 @@ making requests in parallel threads instead of serializing them.
 
 import time
 
-import scraper.webscraper as ws
+import xscrapers.webscraper as ws
 from tqdm import tqdm
 
 URL = "http://httpbin.org/"
