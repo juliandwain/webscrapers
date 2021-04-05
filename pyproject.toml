@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "xscrapers"
+name = "scraper"
 version = "0.0.7"
 description = "A simple webscraper library"
 license = "MIT"
