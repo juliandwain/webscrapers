@@ -16,6 +16,8 @@ class Scraper(abc.ABC):
 
     def __init__(self, *args, **kwargs):
         self._url = None
+        # define a timeout
+        self._timeout = 15
 
     @property
     def url(self) -> Union[None, str, List[str]]:

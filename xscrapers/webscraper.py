@@ -3,6 +3,7 @@
 __doc__ = """This module implements the webscraper.
 """
 
+import functools
 import http.client
 import logging
 import os
@@ -55,7 +56,11 @@ RESPONSE_OBJECT = Union[None, requests.Response,
                         List[requests.Response], requests.exceptions.RequestException]
 
 
-def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
+def callback(
+    res: requests.Response,
+    *args,
+    **kwargs
+) -> requests.Response:
     """Callback function.
 
     Parameters
@@ -133,7 +138,6 @@ class Webscraper(Scraper):
         self._sess = requests.Session()
         if self._verbose:
             self._sess.hooks["response"].append(callback)
-        self._timeout = 15
 
         # initialize the response and data attributes
         self._res = None
@@ -198,6 +202,7 @@ class Webscraper(Scraper):
         """
         self._data = val
 
+    @functools.singledispatchmethod
     def get(
         self,
         url: Union[str, List[str]],
@@ -215,25 +220,11 @@ class Webscraper(Scraper):
             If `url` is neither of type `str` nor of type `list`.
 
         """
-        # save the url to the data class
-        self._url = url
-        if isinstance(self._url, str):
-            self._url = self._url.strip()
-            res = self._load_url(self._url)
-        elif isinstance(self._url, list):
-            self._url = [ur.strip() for ur in self._url]
-            res = self._load_urls(self._url)
-        else:
-            raise AssertionError(
-                f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}.")
-        # set the attribute
-        setattr(self, "_res", res)
-        self._http_request["GET"] = True
+        raise NotImplementedError(
+            f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}.")
 
-    def _load_url(
-        self,
-        url: str,
-    ) -> Union[requests.Response, requests.exceptions.RequestException]:
+    @get.register
+    def _(self, url: str) -> RESPONSE_OBJECT:
         """Load a single url.
 
         Parameters
@@ -248,6 +239,8 @@ class Webscraper(Scraper):
             for some reason, the error itself is returned.
 
         """
+        # save the url to the data class
+        self._url = url
         with self._sess as sess:
             try:
                 res = sess.get(
@@ -266,12 +259,13 @@ class Webscraper(Scraper):
                 REQUESTS_LOG.warning(
                     f"Sending a GET request to {url} has failed!\nThe exception thrown is {e}")
                 res = e
+        # set the attribute
+        self.__setattr__("_res", res)
+        self._http_request["GET"] = True
         return res
 
-    def _load_urls(
-        self,
-        urls: List[str],
-    ) -> List[requests.Response]:
+    @get.register
+    def _(self, url: list) -> None:
         """Load a list of urls to response objects.
 
         Parameters
@@ -291,8 +285,10 @@ class Webscraper(Scraper):
         of threads have to be given.
 
         """
+        # save the url to the data class
+        self._url = url
         with ThreadPoolExecutor(max_workers=self._max_threads) as executor:
-            responses = list(executor.map(self._load_url, urls, chunksize=8))
+            responses = list(executor.map(self.get, url, chunksize=8))
             # wait until all threads are finished
             executor.shutdown(wait=True)
         # filter out Response >=[400] and exceptions
@@ -305,11 +301,13 @@ class Webscraper(Scraper):
             else:
                 if res.ok:
                     _res.append(res)
-                    _urls.append(urls[i])
+                    _urls.append(url[i])
                 else:  # filter out bad responses
                     continue
         self._url = _urls
-        return _res
+        # set the attribute
+        self.__setattr__("_res", _res)
+        self._http_request["GET"] = True
 
     def put(
         self,
@@ -327,7 +325,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.put(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["PUT"] = True
 
     def delete(
@@ -346,7 +344,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.delete(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["DELETE"] = True
 
     def head(
@@ -365,7 +363,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.head(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["HEAD"] = True
 
     def options(
@@ -384,7 +382,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.options(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["OPTIONS"] = True
 
     def post(
@@ -410,7 +408,7 @@ class Webscraper(Scraper):
                 data=payload
             )
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["POST"] = True
 
     def patch(
@@ -429,7 +427,7 @@ class Webscraper(Scraper):
         with self._sess as sess:
             res = sess.patch(url)
         # set the attribute
-        setattr(self, "_res", res)
+        self.__setattr__("_res", res)
         self._http_request["PATCH"] = True
 
     def parse(

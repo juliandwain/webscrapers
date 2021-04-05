@@ -8,7 +8,7 @@ thereafter scrapes the webpage for the needed information.
 """
 
 from typing import TypeVar
-import scraper.tools as tools
+import xscrapers.tools as tools
 
 _KT = TypeVar("_KT")
 _VT = TypeVar("_VT")

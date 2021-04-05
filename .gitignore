@@ -20,7 +20,9 @@ __pypackages__/
 # test files
 covid.py
 test.py
-test*.py
+test1.py
+test2.py
+test3.py
 compilation_info.md
 
 # ignore jupyter notebook files
@@ -36,3 +38,6 @@ docs/_build/
 
 # drivers
 drivers/
+
+# environment files
+.env
