@@ -11,6 +11,8 @@ from typing import Union
 
 import xscrapers.webscraper as ws
 
+PATH_LIKE = Union[str, os.PathLike]
+
 
 class PhotoSaver(ws.Webscraper):
     def __init__(self, parser: str, verbose: bool = False) -> None:
@@ -20,12 +22,12 @@ class PhotoSaver(ws.Webscraper):
         self._chunk_size = 256
         super().__init__(parser, verbose=verbose, get_params=self._params)
 
-    def save(self, path: Union[str, os.PathLike]) -> None:
+    def save(self, path: PATH_LIKE) -> None:
         """Save a downloaded image to a file.
 
         Parameters
         ----------
-        path : Union[str, PathLike]
+        path : PATH_LIKE
             The path in which the file should be saved.
 
         Notes
