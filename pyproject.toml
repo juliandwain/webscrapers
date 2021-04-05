@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "xscrapers"
-version = "0.0.7"
+version = "0.0.8"
 description = "A simple webscraper library"
 license = "MIT"
 authors = ["Julian Stang <julian.stang@tum.de>"]
