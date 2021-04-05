@@ -70,12 +70,6 @@ class TestWebScraper(unittest.TestCase):
         self.webscraper.parse()
         assert isinstance(self.webscraper.data, BeautifulSoup)
 
-    def test_error_handling(self):
-        status_codes = list(range(100, 600, 100))
-        urls = [self.url +
-                f"/status/{status_code}" for status_code in status_codes]
-        self.webscraper.get(urls)
-
     def test_http_methods(self):
         methods = [
             "DELETE",
@@ -95,6 +89,56 @@ class TestWebScraper(unittest.TestCase):
             url = self.url + method.lower()
             function(url)
             assert self.webscraper._http_request[method]
+
+    def test_auth(self):
+        pass
+
+    def test_status_codes(self):
+        status_codes = list(range(100, 600, 100))
+        urls = [self.url +
+                f"/status/{status_code}" for status_code in status_codes]
+        self.webscraper.get(urls)
+
+    def test_request_inspection(self):
+        inspections = [
+            "headers",
+            "ip",
+            "user-agent",
+        ]
+        for inspection in inspections:
+            url = self.url + inspection
+            self.webscraper.get(url)
+
+    def test_response_inspection(self):
+        pass
+
+    def test_response_formats(self):
+        formats = [
+            "brotli",
+            "deflate",
+            "deny",
+            "encoding/utf8",
+            "gzip",
+            "html",
+            "json",
+            "robots.txt",
+            "xml",
+        ]
+
+    def test_dynamic_data(self):
+        pass
+
+    def test_cookies(self):
+        pass
+
+    def test_images(self):
+        pass
+
+    def test_redirects(self):
+        pass
+
+    def test_anything(self):
+        pass
 
 
 if __name__ == '__main__':
