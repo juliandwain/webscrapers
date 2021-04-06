@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import gzip
 import time
 import unittest
+from pathlib import Path
 
 import xscrapers.webscraper as ws
 from bs4 import BeautifulSoup
@@ -40,6 +42,9 @@ class TestWebScraper(unittest.TestCase):
         self.parser = "html.parser"
         self.webscraper = ws.Webscraper(self.parser, verbose=True)
 
+        self.test_path = Path("tests/etc")
+        self.test_path.mkdir(parents=True, exist_ok=True)
+
     def tearDown(self):
         pass
 
@@ -71,20 +76,20 @@ class TestWebScraper(unittest.TestCase):
         assert isinstance(self.webscraper.data, BeautifulSoup)
 
     def test_http_methods(self):
-        methods = [
+        methods = (
             "DELETE",
             "GET",
             "PATCH",
             "POST",
             "PUT",
-        ]
-        functions = [
+        )
+        functions = (
             self.webscraper.delete,
             self.webscraper.get,
             self.webscraper.patch,
             self.webscraper.post,
             self.webscraper.put,
-        ]
+        )
         for function, method in zip(functions, methods):
             url = self.url + method.lower()
             function(url)
@@ -100,11 +105,11 @@ class TestWebScraper(unittest.TestCase):
         self.webscraper.get(urls)
 
     def test_request_inspection(self):
-        inspections = [
+        inspections = (
             "headers",
             "ip",
             "user-agent",
-        ]
+        )
         for inspection in inspections:
             url = self.url + inspection
             self.webscraper.get(url)
@@ -113,17 +118,34 @@ class TestWebScraper(unittest.TestCase):
         pass
 
     def test_response_formats(self):
-        formats = [
-            "brotli",
-            "deflate",
-            "deny",
-            "encoding/utf8",
-            "gzip",
-            "html",
-            "json",
-            "robots.txt",
-            "xml",
-        ]
+        plain_data = {
+            "deny": ("text/plain", "txt"),
+            "encoding/utf8": ("text/html; charset=utf-8", "html"),
+            "html": ("text/html; charset=utf-8", "html"),
+            "json": ("application/json", "json"),
+            "robots.txt": ("text/plain", "txt"),
+            "xml": ("application/xml", "xml"),
+        }
+        encoded_data = {
+            "brotli": ("br", None),
+            "deflate": ("deflate", None),
+            "gzip": ("gzip", gzip.open),
+        }
+        for i, (format, (code, fun)) in enumerate(encoded_data.items()):
+            url = self.url + format
+            self.webscraper.get(url)
+            encoding = self.webscraper.res.headers["Content-Encoding"]
+            assert encoding == code
+
+        for i, (format, (code, file_type)) in enumerate(plain_data.items()):
+            url = self.url + format
+            self.webscraper.get(url)
+            content_type = self.webscraper.res.headers["Content-Type"]
+            encoding = self.webscraper.res.encoding
+            assert content_type == code
+            file = self.test_path / f"test-{i}.{file_type}"
+            with file.open(mode="w", encoding=encoding) as f:
+                f.write(self.webscraper.res.text)
 
     def test_dynamic_data(self):
         pass
