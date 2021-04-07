@@ -5,6 +5,7 @@ __doc__ = """This module implements the webscraper.
 
 import functools
 import http.client
+import itertools
 import logging
 import os
 from concurrent.futures import ThreadPoolExecutor  # ,ProcessPoolExecutor
@@ -203,51 +204,84 @@ class Webscraper(Scraper):
         self._data = val
 
     @functools.singledispatchmethod
-    def get(
+    def _request(
         self,
         url: Union[str, List[str]],
+        method: str,
+        kwargs: dict,
     ) -> None:
-        """Make a GET request to a single or multiple urls.
+        """Make a request specified by ``method``.
 
         Parameters
         ----------
         url : Union[str, List[str]]
-            The url or list of urls to be loaded.
+            The url to which the request should be made.
+        method : str
+            The method which should be applied. Can be
+
+            * "DELETE"
+            * "GET"
+            * "PATCH"
+            * "POST"
+            * "PUT"
+            * "OPTIONS"
+
+        kwargs : dict
+            A dictionary containing keyword arguments which are passed to
+            the respective method chosen, see [1].
 
         Raises
         ------
-        AssertionError
-            If `url` is neither of type `str` nor of type `list`.
+        NotImplementedError
+            If ``url`` is neither of type str nor list.
+
+        Notes
+        -----
+        The ``kwargs`` parameter are specified in the respective method
+        within this class.
+
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
 
         """
         raise NotImplementedError(
             f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}.")
 
-    @get.register
-    def _(self, url: str) -> RESPONSE_OBJECT:
-        """Load a single url.
+    @_request.register
+    def _(
+        self,
+        url: str,
+        method: str,
+        kwargs: dict,
+    ) -> RESPONSE_OBJECT:
+        """Make a request to a single url.
 
         Parameters
         ----------
         url : str
-            The url to be loaded.
+            The url which should be accessed.
+        method : str
+            The method which should be applied.
+        kwargs : dict
+            See the documentation for ``self._request`` method.
 
         Returns
         -------
-        Union[requests.Response, requests.exceptions.RequestException]
-            The corresponding response object. If the request fails
-            for some reason, the error itself is returned.
+        RESPONSE_OBJECT
+            The reponse object.
 
         """
         # save the url to the data class
         self._url = url
         with self._sess as sess:
             try:
-                res = sess.get(
+                res = sess.request(
+                    method.upper(),
                     url,
                     headers=self._headers,
                     timeout=self._timeout,
-                    **self._get_params,
+                    **kwargs,
                 )
                 if not res.ok:  # check if no bad response is returned
                     REQUESTS_LOG.warning(
@@ -257,26 +291,30 @@ class Webscraper(Scraper):
                                        res.elapsed.total_seconds())
             except requests.exceptions.RequestException as e:
                 REQUESTS_LOG.warning(
-                    f"Sending a GET request to {url} has failed!\nThe exception thrown is {e}")
+                    f"Sending a {method.upper()} request to {url} has failed!\nThe exception thrown is {e}")
                 res = e
         # set the attribute
         self.__setattr__("_res", res)
-        self._http_request["GET"] = True
+        self._http_request[method.upper()] = True
         return res
 
-    @get.register
-    def _(self, url: list) -> None:
-        """Load a list of urls to response objects.
+    @_request.register
+    def _(
+        self,
+        url: list,
+        method: str,
+        kwargs: dict,
+    ) -> None:
+        """Make a request to multiple urls.
 
         Parameters
         ----------
-        urls : list
-            A list of urls to be loaded with the session objects.
-
-        Returns
-        -------
-        List[requests.Response]
-            A list of requests.Response objects corresponding to the urls given.
+        url : list
+            The urls which should be accessed.
+        method : str
+            The method which should be applied.
+        kwargs : dict
+            See the documentation for ``self._request`` method.
 
         Notes
         -----
@@ -285,10 +323,13 @@ class Webscraper(Scraper):
         of threads have to be given.
 
         """
-        # save the url to the data class
-        self._url = url
         with ThreadPoolExecutor(max_workers=self._max_threads) as executor:
-            responses = list(executor.map(self.get, url, chunksize=8))
+            responses = list(executor.map(
+                self._request,
+                url,
+                itertools.repeat(method),
+                itertools.repeat(kwargs),
+            ))
             # wait until all threads are finished
             executor.shutdown(wait=True)
         # filter out Response >=[400] and exceptions
@@ -307,128 +348,168 @@ class Webscraper(Scraper):
         self._url = _urls
         # set the attribute
         self.__setattr__("_res", _res)
-        self._http_request["GET"] = True
+        self._http_request[method.upper()] = True
+
+    def get(
+        self,
+        url: Union[str, List[str]],
+        kwargs: dict = {},
+    ) -> None:
+        """Make a GET request.
+
+        Parameters
+        ----------
+        url : Union[str, List[str]]
+            The url(s) to which a GET request should be made.
+        kwargs : dict, optional
+            A dictionary containing arguments described in [1],
+            by default {}.
+
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
+
+        """
+        method = "GET"
+        self._request(url, method, kwargs)
 
     def put(
         self,
-        url: str
+        url: Union[str, List[str]],
+        kwargs: dict = {},
     ) -> None:
-        """Make a PUT request to a single url.
+        """Make a PUT request.
 
         Parameters
         ----------
-        url : str
-            The url to which a PUT request should be made.
+        url : Union[str, List[str]]
+            The url(s) to which a PUT request should be made.
+        kwargs : dict, optional
+            A dictionary containing arguments described in [1],
+            by default {}.
+
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
 
         """
-        self._url = url
-        with self._sess as sess:
-            res = sess.put(url)
-        # set the attribute
-        self.__setattr__("_res", res)
-        self._http_request["PUT"] = True
+        method = "PUT"
+        self._request(url, method, kwargs)
 
     def delete(
         self,
-        url: str
+        url: Union[str, List[str]],
+        kwargs: dict = {},
     ) -> None:
-        """Make a DELETE request to a single url.
+        """Make a DELETE request.
 
         Parameters
         ----------
-        url : str
-            The url to which a DELETE request should be made.
+        url : Union[str, List[str]]
+            The url(s) to which a DELETE request should be made.
+        kwargs : dict, optional
+            A dictionary containing arguments described in [1],
+            by default {}.
+
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
 
         """
-        self._url = url
-        with self._sess as sess:
-            res = sess.delete(url)
-        # set the attribute
-        self.__setattr__("_res", res)
-        self._http_request["DELETE"] = True
+        method = "DELETE"
+        self._request(url, method, kwargs)
 
     def head(
         self,
-        url: str
+        url: Union[str, List[str]],
+        kwargs: dict = {},
     ) -> None:
-        """Make a HEAD request to a single url.
+        """Make a HEAD request.
 
         Parameters
         ----------
-        url : str
-            The url to which a HEAD request should be made.
+        url : Union[str, List[str]]
+            The url(s) to which a HEAD request should be made.
+        kwargs : dict, optional
+            A dictionary containing arguments described in [1],
+            by default {}.
+
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
 
         """
-        self._url = url
-        with self._sess as sess:
-            res = sess.head(url)
-        # set the attribute
-        self.__setattr__("_res", res)
-        self._http_request["HEAD"] = True
+        method = "HEAD"
+        self._request(url, method, kwargs)
 
     def options(
         self,
-        url: str
+        url: Union[str, List[str]],
+        kwargs: dict = {},
     ) -> None:
-        """Make an OPTIONS request to a single url.
+        """Make an OPTIONS request.
 
         Parameters
         ----------
-        url : str
-            The url to which an OPTIONS request should be made.
+        url : Union[str, List[str]]
+            The url(s) to which a OPTIONS request should be made.
+        kwargs : dict, optional
+            A dictionary containing arguments described in [1],
+            by default {}.
+
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
 
         """
-        self._url = url
-        with self._sess as sess:
-            res = sess.options(url)
-        # set the attribute
-        self.__setattr__("_res", res)
-        self._http_request["OPTIONS"] = True
+        method = "OPTIONS"
+        self._request(url, method, kwargs)
 
     def post(
         self,
-        url: str,
-        payload: dict = {},
+        url: Union[str, List[str]],
+        kwargs: dict = {},
     ) -> None:
-        """Make a POST request to a single url.
+        """Make a POST request.
 
         Parameters
         ----------
-        url : str
-            The url to which a POST request should be made.
-        payload : dict, optional
-            The data which should be delivered with the post request,
+        url : Union[str, List[str]]
+            The url(s) to which a POST request should be made.
+        kwargs : dict, optional
+            A dictionary containing arguments described in [1],
             by default {}.
 
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
+
         """
-        self._url = url
-        with self._sess as sess:
-            res = sess.post(
-                url,
-                data=payload
-            )
-        # set the attribute
-        self.__setattr__("_res", res)
-        self._http_request["POST"] = True
+        method = "POST"
+        self._request(url, method, kwargs)
 
     def patch(
         self,
-        url: str,
+        url: Union[str, List[str]],
+        kwargs: dict = {},
     ) -> None:
-        """Make a PATCH request to a single url.
+        """Make a PATCH request.
 
         Parameters
         ----------
-        url : str
-            The url to which a PATCH request should be made.
+        url : Union[str, List[str]]
+            The url(s) to which a PATCH request should be made.
+        kwargs : dict, optional
+            A dictionary containing arguments described in [1],
+            by default {}.
+
+        References
+        ----------
+        [1] https://docs.python-requests.org/en/latest/api/
 
         """
-        self._url = url
-        with self._sess as sess:
-            res = sess.patch(url)
-        # set the attribute
-        self.__setattr__("_res", res)
-        self._http_request["PATCH"] = True
+        method = "PATCH"
+        self._request(url, method, kwargs)
 
     def parse(
         self,
