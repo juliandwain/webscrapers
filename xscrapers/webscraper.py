@@ -93,13 +93,17 @@ def callback(
 
 class Webscraper(Scraper):
     """The Webscraper class.
+
+    Note that the class saves only the results from the last request made,
+    i.e., when making a combination of GET and PUT request, only the last
+    results is saved in the class' attributes.
+
     """
 
     def __init__(
         self,
         parser: str,
         verbose: bool = False,
-        get_params: Optional[dict] = None,
     ) -> None:
         """Init the class.
 
@@ -114,9 +118,6 @@ class Webscraper(Scraper):
         verbose : bool
             Determine whether the output should be written to the log file,
             by default False.
-        get_params : Optional[dict]
-            A dictionary containing parameters for the GET request,
-            by default None. See [1].
 
         References
         ----------
@@ -126,10 +127,6 @@ class Webscraper(Scraper):
         super().__init__()
         self._parser = parser
         self._verbose = verbose
-        if get_params:
-            self._get_params = get_params
-        else:
-            self._get_params = {}
 
         self._max_threads = os.cpu_count()*2 - 4
         self._max_processes = os.cpu_count() - 2
@@ -522,23 +519,23 @@ class Webscraper(Scraper):
         ----------
         name : Optional[str]
             Parse only a part of the document specified by a name
-            (see the documentation for `_parse_response()`),
+            (see the documentation for ``_parse_response()``),
             by default None.
 
         Other Parameters
         ----------------
-        Parameters passed into the `SoupStrainer` object, the same as for
+        Parameters passed into the ``SoupStrainer`` object, the same as for
         the find_all method of BS4, see the documentation for 
-        `_parse_response()`.
+        ``_parse_response()``.
 
         Raises
         ------
         AssertionError
-            If `self.load` has not been called before calling this method.
+            If ``self.load`` has not been called before calling this method.
 
         Notes
         -----
-        The parsed response objects are stored in the `data` attribute of the
+        The parsed response objects are stored in the ``data`` attribute of the
         class which has type Union[BeautifulSoup, List[BeautifulSoup]]
         depending on the input the same output is returned with parsed htmls.
 
@@ -569,13 +566,13 @@ class Webscraper(Scraper):
         res : requests.Response
             The response to be parsed.
         name : Optional[str]
-            Parse only a part of the document specified by a `name`
-            (see [1]), by default `None`.
+            Parse only a part of the document specified by a ``name``
+            (see [1]), by default None.
 
         Other Parameters
         ----------------
-        Parameters passed into the `SoupStrainer` object, the same as for
-        the `find_all` method of BS4, see [2].
+        Parameters passed into the ``SoupStrainer`` object, the same as for
+        the ``find_all`` method of BS4, see [2].
 
         Returns
         -------
@@ -585,7 +582,7 @@ class Webscraper(Scraper):
         Notes
         -----
         This function takes in a string as name which is wrapped
-        into a `SoupStrainer` object.
+        into a ``SoupStrainer`` object.
 
         References
         ----------
