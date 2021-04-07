@@ -92,7 +92,7 @@ class Parser(Webscraper):
         fun: Callable,
         *args,
     ) -> Dict[str, list]:
-        """Get all html elements defined by `tag`.
+        """Get all html elements defined by ``tag``.
 
         Parameters
         ----------
@@ -101,7 +101,7 @@ class Parser(Webscraper):
         element : DATA_OBJECT
             The element to be parsed, this can be:
 
-            * None: If None, then the self._data attribute is parsed.
+            * None: If None, then the ``self._data`` attribute is parsed.
             * Beautifulsoup: Parse the given Beautifulsoup element.
             * List[Beautifulsoup]: Parse the given Beautifulsoup elements.
 
@@ -118,13 +118,13 @@ class Parser(Webscraper):
 
         Notes
         -----
-        If no `element` is given to be searched, then the url(s) is(are)
+        If no ``element`` is given to be searched, then the url(s) is(are)
         searched for only ``tag`` elements.
 
         Raises
         ------
         AssertionError
-            If element is not of type list or Beautifulsoup.
+            If element is neither of type ``list`` nor ``BeautifulSoup``.
 
         """
         data = {}
