@@ -16,11 +16,8 @@ PATH_LIKE = Union[str, os.PathLike]
 
 class PhotoSaver(ws.Webscraper):
     def __init__(self, parser: str, verbose: bool = False) -> None:
-        self._params = {
-            "stream": True,
-        }
         self._chunk_size = 256
-        super().__init__(parser, verbose=verbose, get_params=self._params)
+        super().__init__(parser, verbose=verbose)
 
     def save(self, path: PATH_LIKE) -> None:
         """Save a downloaded image to a file.
@@ -72,13 +69,16 @@ if __name__ == "__main__":
         r"http://httpbin.org/image/svg",
         r"http://httpbin.org/image/webp",
     ]
+    params = {
+        "stream": True,
+    }
     path = os.path.join(os.path.abspath(""), "examples/figs/")
     filename = "image.png"
     print(path)
 
     photo_saver = PhotoSaver(parser, verbose=True)
-    photo_saver.get(url)
+    photo_saver.get(url, params)
     photo_saver.save(os.path.join(path, filename))
 
-    photo_saver.get(urls)
+    photo_saver.get(urls, params)
     photo_saver.save(path)
