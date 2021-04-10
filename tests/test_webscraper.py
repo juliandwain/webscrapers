@@ -42,8 +42,10 @@ class TestWebScraper(unittest.TestCase):
         self.parser = "html.parser"
         self.webscraper = ws.Webscraper(self.parser, verbose=True)
 
+        self.chunk_size = 256
         self.test_path = Path("tests/etc")
-        self.test_path.mkdir(parents=True, exist_ok=True)
+        if not self.test_path.exists():
+            self.test_path.mkdir(parents=True, exist_ok=True)
 
     def tearDown(self):
         pass
@@ -147,8 +149,50 @@ class TestWebScraper(unittest.TestCase):
             with file.open(mode="w", encoding=encoding) as f:
                 f.write(self.webscraper.res.text)
 
-    def test_dynamic_data(self):
-        pass
+    def test_dynamic_data_delay(self):
+        # delay
+        delay = 10
+        functions = (
+            self.webscraper.delete,
+            self.webscraper.get,
+            self.webscraper.patch,
+            self.webscraper.post,
+            self.webscraper.put,
+        )
+        delay_url = self.url + f"delay/{delay}"
+        for function in functions:
+            function(delay_url)
+
+    def test_dynamic_data_bytes(self):
+        n = 1024
+        params = {
+            "stream": True,
+        }
+        urls = [
+            self.url + f"bytes/{n}",
+            self.url + f"range/{n}",
+            self.url + f"stream-bytes/{n}",
+            self.url + f"stream/{n}",
+        ]
+        for i, url in enumerate(urls):
+            file = self.test_path / f"byte_data_{i}"
+            self.webscraper.get(url, params)
+            with file.open(mode="wb") as f:
+                for chunk in self.webscraper.res.iter_content(chunk_size=self.chunk_size):
+                    f.write(chunk)
+
+    def test_dynamic_data_rand(self):
+        value = 128
+        n = 10
+        offset = 2
+        urls = [
+            self.url + f"base64/{value}",
+            self.url + "drip",
+            self.url + f"links/{n}/{offset}",
+            self.url + f"uuid"
+        ]
+        for url in urls:
+            self.webscraper.get(url)
 
     def test_cookies(self):
         pass
