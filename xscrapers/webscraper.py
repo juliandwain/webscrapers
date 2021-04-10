@@ -9,7 +9,7 @@ import itertools
 import logging
 import os
 from concurrent.futures import ThreadPoolExecutor  # ,ProcessPoolExecutor
-from typing import List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
@@ -205,7 +205,7 @@ class Webscraper(Scraper):
         self,
         url: Union[str, List[str]],
         method: str,
-        kwargs: dict,
+        kwargs: Dict[str, Any],
     ) -> None:
         """Make a request specified by ``method``.
 
@@ -223,7 +223,7 @@ class Webscraper(Scraper):
             * "PUT"
             * "OPTIONS"
 
-        kwargs : dict
+        kwargs : Dict[str, Any]
             A dictionary containing keyword arguments which are passed to
             the respective method chosen, see [1].
 
@@ -250,7 +250,7 @@ class Webscraper(Scraper):
         self,
         url: str,
         method: str,
-        kwargs: dict,
+        kwargs: Dict[str, Any],
     ) -> RESPONSE_OBJECT:
         """Make a request to a single url.
 
@@ -260,7 +260,7 @@ class Webscraper(Scraper):
             The url which should be accessed.
         method : str
             The method which should be applied.
-        kwargs : dict
+        kwargs : Dict[str, Any]
             See the documentation for ``self._request`` method.
 
         Returns
@@ -300,7 +300,7 @@ class Webscraper(Scraper):
         self,
         url: list,
         method: str,
-        kwargs: dict,
+        kwargs: Dict[str, Any],
     ) -> None:
         """Make a request to multiple urls.
 
@@ -310,7 +310,7 @@ class Webscraper(Scraper):
             The urls which should be accessed.
         method : str
             The method which should be applied.
-        kwargs : dict
+        kwargs : diDict[str, Any]ct
             See the documentation for ``self._request`` method.
 
         Notes
@@ -350,7 +350,7 @@ class Webscraper(Scraper):
     def get(
         self,
         url: Union[str, List[str]],
-        kwargs: dict = {},
+        kwargs: Dict[str, Any] = {},
     ) -> None:
         """Make a GET request.
 
@@ -358,7 +358,7 @@ class Webscraper(Scraper):
         ----------
         url : Union[str, List[str]]
             The url(s) to which a GET request should be made.
-        kwargs : dict, optional
+        kwargs : Dict[str, Any], optional
             A dictionary containing arguments described in [1],
             by default {}.
 
@@ -373,7 +373,7 @@ class Webscraper(Scraper):
     def put(
         self,
         url: Union[str, List[str]],
-        kwargs: dict = {},
+        kwargs: Dict[str, Any] = {},
     ) -> None:
         """Make a PUT request.
 
@@ -381,7 +381,7 @@ class Webscraper(Scraper):
         ----------
         url : Union[str, List[str]]
             The url(s) to which a PUT request should be made.
-        kwargs : dict, optional
+        kwargs : Dict[str, Any], optional
             A dictionary containing arguments described in [1],
             by default {}.
 
@@ -396,7 +396,7 @@ class Webscraper(Scraper):
     def delete(
         self,
         url: Union[str, List[str]],
-        kwargs: dict = {},
+        kwargs: Dict[str, Any] = {},
     ) -> None:
         """Make a DELETE request.
 
@@ -404,7 +404,7 @@ class Webscraper(Scraper):
         ----------
         url : Union[str, List[str]]
             The url(s) to which a DELETE request should be made.
-        kwargs : dict, optional
+        kwargs : Dict[str, Any], optional
             A dictionary containing arguments described in [1],
             by default {}.
 
@@ -419,7 +419,7 @@ class Webscraper(Scraper):
     def head(
         self,
         url: Union[str, List[str]],
-        kwargs: dict = {},
+        kwargs: Dict[str, Any] = {},
     ) -> None:
         """Make a HEAD request.
 
@@ -427,7 +427,7 @@ class Webscraper(Scraper):
         ----------
         url : Union[str, List[str]]
             The url(s) to which a HEAD request should be made.
-        kwargs : dict, optional
+        kwargs : Dict[str, Any], optional
             A dictionary containing arguments described in [1],
             by default {}.
 
@@ -442,7 +442,7 @@ class Webscraper(Scraper):
     def options(
         self,
         url: Union[str, List[str]],
-        kwargs: dict = {},
+        kwargs: Dict[str, Any] = {},
     ) -> None:
         """Make an OPTIONS request.
 
@@ -450,7 +450,7 @@ class Webscraper(Scraper):
         ----------
         url : Union[str, List[str]]
             The url(s) to which a OPTIONS request should be made.
-        kwargs : dict, optional
+        kwargs : Dict[str, Any], optional
             A dictionary containing arguments described in [1],
             by default {}.
 
@@ -465,7 +465,7 @@ class Webscraper(Scraper):
     def post(
         self,
         url: Union[str, List[str]],
-        kwargs: dict = {},
+        kwargs: Dict[str, Any] = {},
     ) -> None:
         """Make a POST request.
 
@@ -473,7 +473,7 @@ class Webscraper(Scraper):
         ----------
         url : Union[str, List[str]]
             The url(s) to which a POST request should be made.
-        kwargs : dict, optional
+        kwargs : Dict[str, Any], optional
             A dictionary containing arguments described in [1],
             by default {}.
 
@@ -488,7 +488,7 @@ class Webscraper(Scraper):
     def patch(
         self,
         url: Union[str, List[str]],
-        kwargs: dict = {},
+        kwargs: Dict[str, Any] = {},
     ) -> None:
         """Make a PATCH request.
 
@@ -496,7 +496,7 @@ class Webscraper(Scraper):
         ----------
         url : Union[str, List[str]]
             The url(s) to which a PATCH request should be made.
-        kwargs : dict, optional
+        kwargs : Dict[str, Any], optional
             A dictionary containing arguments described in [1],
             by default {}.
 
