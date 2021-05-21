@@ -30,7 +30,7 @@ REQUESTS_LOG.propagate = True
 FILE_HANDLER = logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8")
 FILEFORMAT = logging.Formatter(
     "%(asctime)s:[%(threadName)-12.12s]:%(levelname)s:%(name)s:%(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S"
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
 FILE_HANDLER.setFormatter(FILEFORMAT)
 
@@ -53,15 +53,15 @@ STATUS_CODES = {
     500: "Server Errors",
 }
 
-RESPONSE_OBJECT = Union[None, requests.Response,
-                        List[requests.Response], requests.exceptions.RequestException]
+RESPONSE_OBJECT = Union[
+    None,
+    requests.Response,
+    List[requests.Response],
+    requests.exceptions.RequestException,
+]
 
 
-def callback(
-    res: requests.Response,
-    *args,
-    **kwargs
-) -> requests.Response:
+def callback(res: requests.Response, *args, **kwargs) -> requests.Response:
     """Callback function.
 
     Parameters
@@ -79,14 +79,16 @@ def callback(
     res.hook_called = True
     if args:
         raise AssertionError(f"Have a look at what is in {args}")
-    msg = f"\n----- REPORT START -----\n" \
-          f"URL: {res.url}\n" \
-          f"Time: {res.elapsed.total_seconds():.3f}s\n" \
-          f"Encoding: {res.encoding}\n" \
-          f"Reason: {res.reason}\n" \
-          f"Status Code: {res.status_code}\n" \
-          f"Certificate: {kwargs.get('cert', None)}\n" \
-          f"----- REPORT END -----\n"
+    msg = (
+        f"\n----- REPORT START -----\n"
+        f"URL: {res.url}\n"
+        f"Time: {res.elapsed.total_seconds():.3f}s\n"
+        f"Encoding: {res.encoding}\n"
+        f"Reason: {res.reason}\n"
+        f"Status Code: {res.status_code}\n"
+        f"Certificate: {kwargs.get('cert', None)}\n"
+        f"----- REPORT END -----\n"
+    )
     REQUESTS_LOG.debug(msg)
     return res
 
@@ -128,7 +130,7 @@ class Webscraper(Scraper):
         self._parser = parser
         self._verbose = verbose
 
-        self._max_threads = os.cpu_count()*2 - 4
+        self._max_threads = os.cpu_count() * 2 - 4
         self._max_processes = os.cpu_count() - 2
 
         self._user_agent = UserAgent()
@@ -243,7 +245,8 @@ class Webscraper(Scraper):
 
         """
         raise NotImplementedError(
-            f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}.")
+            f"Parameter url is neither of type {str} nor {list}, it is of type {type(url)}."
+        )
 
     @_request.register
     def _(
@@ -282,13 +285,16 @@ class Webscraper(Scraper):
                 )
                 if not res.ok:  # check if no bad response is returned
                     REQUESTS_LOG.warning(
-                        f"Response for {url} failed!\nResponse status code: {res.status_code}.")
+                        f"Response for {url} failed!\nResponse status code: {res.status_code}."
+                    )
                 if self._verbose:
-                    REQUESTS_LOG.debug("Total Time: %3f s",
-                                       res.elapsed.total_seconds())
+                    REQUESTS_LOG.debug(
+                        "Total Time: %3f s", res.elapsed.total_seconds()
+                    )
             except requests.exceptions.RequestException as e:
                 REQUESTS_LOG.warning(
-                    f"Sending a {method.upper()} request to {url} has failed!\nThe exception thrown is {e}")
+                    f"Sending a {method.upper()} request to {url} has failed!\nThe exception thrown is {e}"
+                )
                 res = e
         # set the attribute
         self.__setattr__("_res", res)
@@ -321,12 +327,14 @@ class Webscraper(Scraper):
 
         """
         with ThreadPoolExecutor(max_workers=self._max_threads) as executor:
-            responses = list(executor.map(
-                self._request,
-                url,
-                itertools.repeat(method),
-                itertools.repeat(kwargs),
-            ))
+            responses = list(
+                executor.map(
+                    self._request,
+                    url,
+                    itertools.repeat(method),
+                    itertools.repeat(kwargs),
+                )
+            )
             # wait until all threads are finished
             executor.shutdown(wait=True)
         # filter out Response >=[400] and exceptions
@@ -525,7 +533,7 @@ class Webscraper(Scraper):
         Other Parameters
         ----------------
         Parameters passed into the ``SoupStrainer`` object, the same as for
-        the find_all method of BS4, see the documentation for 
+        the find_all method of BS4, see the documentation for
         ``_parse_response()``.
 
         Raises
@@ -542,7 +550,8 @@ class Webscraper(Scraper):
         """
         if not self._http_request["GET"]:
             raise AssertionError(
-                f"Expected {self.get} to be called before calling {self.parse}.")
+                f"Expected {self.get} to be called before calling {self.parse}."
+            )
         if isinstance(self._res, list):
             obj = []
             for response in self._res:
@@ -591,10 +600,14 @@ class Webscraper(Scraper):
 
         """
         # deterime the correct encoding
-        http_encoding = res.encoding if "charset" in res.headers.get(
-            "content-type", "").lower() else None
+        http_encoding = (
+            res.encoding
+            if "charset" in res.headers.get("content-type", "").lower()
+            else None
+        )
         html_encoding = EncodingDetector.find_declared_encoding(
-            res.content, is_html=True)
+            res.content, is_html=True
+        )
         encoding = html_encoding or http_encoding
         # parse the document
         parse_only = SoupStrainer(name, **kwargs)
